@@ -6,7 +6,7 @@ OauthProviderDemo::Application.routes.draw do
   match '/auth/failure', :to => 'authentications#failure'
 
   # Provider stuff
-  match '/auth/josh_id/user' => 'auth#user'
+  match '/auth/identity/user' => 'auth#user'
   match '/oauth/token' => 'auth#access_token'
   match '/oauth/authorize' => 'auth#authorize'
 

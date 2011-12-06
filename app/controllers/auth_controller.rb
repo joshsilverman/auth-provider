@@ -36,7 +36,7 @@ class AuthController < ApplicationController
 
   def user
     hash = {
-      :provider => 'josh_id',
+      :provider => 'identity',
       :uid => current_user.id.to_s,
       :info => {
         :name => current_user.email, # change if required
