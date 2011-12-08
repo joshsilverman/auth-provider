@@ -1,8 +1,8 @@
 class Client < ActiveRecord::Base
 
-  default_value_for :app_id do random_string(32) end
+  default_value_for :app_id do random_string(24) end
 
-  default_value_for :app_secret do random_string(64) end
+  default_value_for :app_secret do random_string(48) end
 
   def self.authenticate(app_id, app_secret)
     where(["app_id = ? AND app_secret = ?", app_id, app_secret]).first
