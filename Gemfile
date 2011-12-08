@@ -16,6 +16,7 @@ group :assets do
   gem 'uglifier'
 end
 
+gem 'default_value_for'
 gem 'devise'
 gem 'jquery-rails'
 gem 'omniauth'
