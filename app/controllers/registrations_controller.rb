@@ -1,10 +1,16 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_filter :save_referrer, :only => :edit
+  #before_filter :save_referrer, :only => :edit
 
   def new
      # Building the resource with information that MAY BE available from omniauth!
      build_resource
      render_with_scope :new
+  end
+  
+  def edit
+    puts current_user.inspect
+    @credit_card = current_user.credit_card
+    super
   end
 
   def create
@@ -32,5 +38,26 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_update_path_for(scope)
     session[:referrer] ? session[:referrer] : root_path
+  end
+  
+  def credit_card
+  end
+  
+  def update_credit_card
+    puts "UPDATE CARD RUNNING"
+    puts params.inspect
+    puts current_user.inspect
+    if current_user.stripe_customer_token
+      puts "TOKEN EXISTS!"
+      customer = Stripe::Customer.retrieve(current_user.stripe_customer_token)
+      customer.card = params[:card_token]
+      customer.save
+      current_user.update_attributes(:credit_card => params[:last4])
+    else
+      puts "TOKEN NOT FOUND!"
+      customer = Stripe::Customer.create(:card => params[:card_token], :email => current_user.email)
+      current_user.update_attributes(:credit_card => params[:last4], :stripe_customer_token => customer.id)
+    end
+    render :nothing => true, :status => 200
   end
 end

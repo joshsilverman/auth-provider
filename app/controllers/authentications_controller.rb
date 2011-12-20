@@ -30,6 +30,13 @@ class AuthenticationsController < ApplicationController
   def link
     @user = User.find(params[:user_id])
   end
+  
+  def logout
+    session[:user] = nil
+
+#    flash[:notice] = 'You have successfully signed out!'
+    redirect_to "/users/sign_out"
+  end
 
   # TODO: Account linking. Example, if a user has signed in via twitter using the
   # email abc@xyz.com and then signs in via Facebook with the same id, we should

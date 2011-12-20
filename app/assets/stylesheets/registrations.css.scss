@@ -1,0 +1,110 @@
+.authentications_container, .form_container {
+    padding:10px;
+    float:left;
+}
+
+.authentications_container {
+    width: 230px;
+    margin:33px 0 0 70px;
+    p {
+      clear:both;
+      padding-top:10px;
+    }
+}
+.user_edit{
+  .form_container {
+      width: 300px;
+      input{width:200px; color: #595448;}
+      .left, .right{margin-bottom: 10px;}
+      .left{width:150px; float: left;}
+      .right{width:200px; float: right;}
+      .password input, .password .right, .password .left{width:150px;}
+      .password { width:348px; margin:0 0 10px -10px}
+  }
+}
+
+.credit_card{
+  .form_container {
+      width: 300px;
+      input{color: #595448;}
+      .left, .right{margin-bottom: 10px;}
+      .left{width:150px; float: left;}
+      .right{width:200px; float: right;}
+      .password input, .password .right, .password .left{width:150px;}
+      .password { width:348px; margin:0 0 10px -10px}
+  }
+}
+
+.authentications {
+  margin-bottom: 30px;
+}
+
+.authentication {
+  width: 190px;
+  float: left;
+  background-color: #EEE;
+  border: solid 1px #999;
+  padding: 5px 10px;
+  margin:5px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  position: relative;
+  margin-right: 10px;
+}
+
+.authentication .remove {
+  text-decoration: none;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: #333;
+  padding: 2px 4px;
+  font-size: 10px;
+}
+
+.authentication .remove:hover {
+  color: #CCC;
+  background-color: #777;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+
+.authentication img {
+  float: left;
+  margin-right: 10px;
+}
+
+.authentication .provider {
+  font-weight: bold;
+}
+
+.authentication .uid {
+  color: #666;
+  font-size: 11px;
+  overflow:hidden;
+}
+
+.auth_provider img {
+  display: block;
+}
+
+.auth_provider {
+  float: left;
+  text-decoration: none;
+  margin: 10px 10px;
+  text-align: center;
+}
+#contents a{
+    color: #007AC7;
+}
+
+.rounded_border {
+    border: 1px solid lightGrey;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    -moz-border-radius:5px 5px 5px 5px;
+}
+
+#graphic{float:right; width:185px; height: 315px; margin: 10px -40px 0 0; background: url(brilliant2.png)}

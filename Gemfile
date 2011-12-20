@@ -14,6 +14,7 @@ group :assets do
   gem 'sass-rails'
   gem 'therubyracer'
   gem 'uglifier'
+  gem 'haml'
 end
 
 gem 'default_value_for'
@@ -21,3 +22,4 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'omniauth'
 gem 'rails'
+gem 'stripe'

@@ -1,0 +1,66 @@
+.credit_card{:style=>"width:710px; margin:0 auto 15px auto;"}
+  #stripe_error
+    %noscript JavaScript is not enabled and is required for this form. First enable it in your web browser settings.
+  .form_container
+    %h2{:style=>"margin-bottom:10px;"}Edit Credit Card
+    %form{:action=>"update_credit_card", :method=>"POST", :id=>"payment-form"}
+      %div{:style=>"width:350px;"}
+        .left
+          %label Card Holder Name
+        .right
+          %input#card-holder-name{:type=>"text", :size=>"20"}
+        .cl
+
+        .left
+          %label Billing Street Address
+        .right
+          %input#billing-address{:type=>"text", :size=>"20"}
+        .cl
+
+        .left
+          %label Billing City
+        .right
+          %input#billing-city{:type=>"text", :size=>"20"}
+        .cl
+
+        .left
+          %label Billing State
+        .right
+          %input#billing-state{:type=>"text", :size=>"20"}
+        .cl
+
+        .left
+          %label Billing Zip Code
+        .right
+          %input#billing-zip{:type=>"text", :size=>"5"}
+        .cl
+
+        .left
+          %label Billing Country
+        .right
+          %input#billing-country{:type=>"text", :size=>"20"}
+        .cl
+
+        .left
+          %label Card Number
+        .right
+          %input#card-number{:type=>"text", :size=>"20"}
+        .cl
+
+        .left
+          %label CVC
+        .right
+          %input#card-cvc{:type=>"text", :size=>"4"}
+        .cl
+
+        .left
+          %label Expiration (MM/YYYY)
+        .right
+          %input#card-expiry-month{:type=>"text", :size=>"2"} / 
+          %input#card-expiry-year{:type=>"text", :size=>"4"}
+        .cl
+
+        %input#last4{:type=>"hidden"}
+        %input#card_token{:type=>"hidden"}
+
+        %button.submit-button{:type=>"submit"} Save Credit Card
