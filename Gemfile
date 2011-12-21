@@ -14,9 +14,9 @@ group :assets do
   gem 'sass-rails'
   gem 'therubyracer'
   gem 'uglifier'
-  gem 'haml'
 end
 
+gem 'haml'
 gem 'default_value_for'
 gem 'devise'
 gem 'jquery-rails'
