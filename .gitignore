@@ -16,3 +16,6 @@
 
 /config/initializers/omniauth.rb
 /config/database.yml
+/nbproject/*
+.gitignore
+
