@@ -4,16 +4,18 @@
       .row-top
         %h1#logo
           %a.notext{:href=>"#{STUDYEGG_STORE_PATH}"} Logo
-        -if current_user.nil?
-        -else
-          .usernav
+        .usernav
+          -if current_user.nil?
+            %a.first.active{:href=>"#{STUDYEGG_STORE_PATH}"} Library
             %ul
-              %li.first
-                %a{:href=>"#{STUDYEGG_PATH}"} My Eggs
               %li
-                %a{:href=>"#{STUDYEGG_STORE_PATH}"} Egg Store
+                %a.first.active{:href=>"#{STUDYEGG_USER_MANAGER_PATH}"} Login
+          -else
+            %a.first.active{:href=>"#{STUDYEGG_PATH}"} My Eggs
+            %a{:href=>"#{STUDYEGG_STORE_PATH}"} Library
+            %ul
               %li
-                %a.active{:href=>"#{STUDYEGG_USER_MANAGER_PATH}/users/edit"} Edit Account
+                %a.first{:href=>"#{STUDYEGG_USER_MANAGER_PATH}/users/edit"} Account
               %li
-                %a{:href=>"/logout"} Log Out
+                %a{:href=>"/logout"} Logout
         .cl
