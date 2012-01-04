@@ -1,0 +1,36 @@
+.usernav {display:none !important;}
+
+#main {
+  
+  .shell {
+    
+    #content {
+      
+      #title {
+        padding: 8px;
+        background: #F8F8F8;
+        border-bottom: 1px solid #EEE;
+        height: 35px;
+        overflow: hidden;
+      }
+      
+      width:300px;
+      float:right;
+      
+      margin: 10px 10px;
+      padding:8px;
+      color: #606060;
+      box-shadow: 0 1px 4px #aaa;
+      border-radius: 3px;
+      background:rgba(245, 249, 252, 0.90);
+      
+      input[type=email], input[type=password] {
+        width:298px;
+        border: solid #ccc 1px;
+        border-radius: 3px;
+        padding:2px;
+        margin:5px 0;
+      }
+    }
+  }
+}
