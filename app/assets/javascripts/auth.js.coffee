@@ -9,7 +9,7 @@ $ ->
         
         footerY = footer.height()
         contentsY = contents.height()
-        headerY = header.height()
+        headerY = header.height() + 15
         viewportY = $(window).height()
         
         difference = viewportY - footerY - headerY - 13;
@@ -20,6 +20,5 @@ $ ->
         contents.css('minHeight', newContentsY+'px')
 
     #init
-    init = ->
-        resizeContents()
+    init = -> resizeContents()
     init()
