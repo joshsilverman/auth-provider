@@ -1,4 +1,8 @@
-class SessionsController < Devise::SessionsController  
+class SessionsController < Devise::SessionsController    
+  def new
+    @sub = @subdomain
+    super
+  end
   def destroy
     puts "OVERRIDE DEVISE"
     signed_in = signed_in?(resource_name)
