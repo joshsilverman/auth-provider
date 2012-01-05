@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :get_host
   
   def get_host
-    @host = request.host_with_port
+    @subdomain = 'default'
+    @subdomain = request.subdomain if request.subdomain=='und'
   end
 end
