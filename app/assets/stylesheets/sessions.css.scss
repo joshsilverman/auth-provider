@@ -1,35 +1,66 @@
 .usernav {display:none !important;}
 
+.flash_container {display:none;}
+
 #main {
   
   .shell {
     
     #content {
+      width:371px;
+      float:left;
       
-      #title {
-        padding: 8px;
+      margin: 70px 0 0 0px;
+/*      padding:8px;*/
+      color: #606060;
+      box-shadow: 0 1px .62em #aaa;
+      border-radius: .62em;
+/*      background:rgba(245, 249, 252, 0.90);*/
+      background:white;
+      
+      .title {
+        padding: 1em;
         background: #F8F8F8;
         border-bottom: 1px solid #EEE;
-        height: 35px;
         overflow: hidden;
+        border-radius: .62em .62em 0px 0px;
+        
+        img {
+          max-height:1.62em;
+          float:left;
+        }
+        
+        h4 {
+          float:left;
+          margin:6px;
+          padding-left:8px;
+          border-left:2px solid grey;
+        }
       }
       
-      width:300px;
-      float:right;
+      .login-box {
       
-      margin: 10px 10px;
-      padding:8px;
-      color: #606060;
-      box-shadow: 0 1px 4px #aaa;
-      border-radius: 3px;
-      background:rgba(245, 249, 252, 0.90);
-      
-      input[type=email], input[type=password] {
-        width:298px;
-        border: solid #ccc 1px;
-        border-radius: 3px;
-        padding:2px;
-        margin:5px 0;
+        input[type=email], input[type=password] {
+          width:345px;
+          border: solid #ccc 1px;
+          border-radius: 3px;
+          padding:.12em;
+          font-size:1.5em;
+        }
+        
+        input[type=submit] {
+          width:345px;
+/*          border: solid #ccc 1px;*/
+/*          border-radius: 3px;*/
+          padding:.12em;
+          font-size:1.5em;
+          color:606060;
+        }
+        
+        p {
+          font-size:1em;
+          margin:1em;
+        }
       }
     }
   }
