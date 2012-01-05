@@ -5,6 +5,18 @@
     %h4 login
 
 .login-box
+  -unless flash[:notice].blank? && flash[:error].blank? && flash[:alert].blank?
+    .flash_container
+      -unless flash[:alert].blank?
+        .error
+          %p= flash[:alert]
+      -unless flash[:notice].blank?
+        .notice
+          %p= flash[:notice]
+      -unless flash[:error].blank?
+        .error
+          %p= flash[:error]
+
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     %p
       =# f.label :email

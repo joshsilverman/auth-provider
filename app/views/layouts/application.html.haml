@@ -16,17 +16,6 @@
         #main
             .shell
                 #content{:class=>"whitebg"}
-                    -unless flash[:notice].blank? && flash[:error].blank? && flash[:alert].blank?
-                        .flash_container
-                            -unless flash[:alert].blank?
-                                .error
-                                    %p= flash[:alert]
-                            -unless flash[:notice].blank?
-                                .notice
-                                    %p= flash[:notice]
-                            -unless flash[:error].blank?
-                                .error
-                                    %p= flash[:error]
                     = yield
         .cl
         = render 'layouts/footer'
