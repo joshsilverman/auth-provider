@@ -3,23 +3,25 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
     resizeContents = ->
-        footer = $('#footer')
-        contents = $('#main')
-        header = $('#header')
-        
-        footerY = footer.height()
-        contentsY = contents.height()
-        headerY = header.height()
-        viewportY = $(window).height()
-        
-        difference = viewportY - footerY - headerY - 13;
+      footer = $('#footer')
+      contents = $('#main')
+      header = $('#header')
 
-        newContentsY = difference;
+      footerY = footer.height()
+      contentsY = contents.height()
+      headerY = header.height() + 15
+      viewportY = $(window).height()
 
-        #set min height
-        contents.css('minHeight', newContentsY+'px')
+      difference = viewportY - footerY - headerY - 13;
+
+      newContentsY = difference;
+
+      #set min height
+      contents.css('minHeight', newContentsY+'px')
+      
+      #move sign-in
+      $("#main").css('minHeight', newContentsY+'px')
 
     #init
-    init = ->
-        resizeContents()
+    init = -> resizeContents()
     init()
