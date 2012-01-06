@@ -12,7 +12,7 @@ $ ->
       headerY = header.height() + 15
       viewportY = $(window).height()
 
-      difference = viewportY - footerY - headerY - 13;
+      difference = viewportY - footerY - headerY - 6;
 
       newContentsY = difference;
 
