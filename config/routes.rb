@@ -1,9 +1,4 @@
-StudyeggUserManager::Application.routes.draw do
-  #credit_card
-  devise_scope :user do
-    match 'users/credit_card' => 'registrations#credit_card'
-    match 'users/update_credit_card' => 'registrations#update_credit_card'
-  end
+StudyeggUserManager::Application.routes.draw do  
   
   devise_for :users, :controllers => { :registrations => 'registrations',
                                        :sessions => 'sessions'}
@@ -21,5 +16,10 @@ StudyeggUserManager::Application.routes.draw do
   match 'authentications/:user_id/link' => 'authentications#link', :as => :link_accounts
   match 'authentications/:user_id/add' => 'authentications#add', :as => :add_account
  
-  root :to => 'auth#welcome'
+  devise_scope :user do
+    #match 'users/credit_card' => 'registrations#credit_card'
+    #match 'users/update_credit_card' => 'registrations#update_credit_card'
+    root :to => 'auth#welcome'
+  end
+  
 end

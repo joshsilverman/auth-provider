@@ -10,7 +10,7 @@ en:
 
   devise:
     failure:
-      unauthenticated: 'Please sign in or sign up before continuing.'
+      unauthenticated: ''
       unconfirmed: 'You have to confirm your account before continuing.'
       locked: 'Your account is locked.'
       invalid: 'Invalid email or password.'
