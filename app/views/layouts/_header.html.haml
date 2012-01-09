@@ -3,7 +3,7 @@
     #head
       .row-top
         %h1#logo
-          %a.notext{:href=>"#{STUDYEGG_STORE_PATH}"} Logo
+          %a.notext{:href=>"http://#{STUDYEGG_STORE_PATH}"} Logo
         .usernav
           -if current_user.nil?
             %a.first.active{:href=>"#{STUDYEGG_STORE_PATH}"} Library

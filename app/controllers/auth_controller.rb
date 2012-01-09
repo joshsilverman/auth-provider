@@ -3,7 +3,11 @@ class AuthController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:access_token]
 
   def welcome
-    redirect_to "#{STUDYEGG_PATH}"
+    if params[:id]
+      redirect_to "http://#{params[:id]}.#{STUDYEGG_PATH}"
+    else
+      redirect_to "http://www.#{STUDYEGG_PATH}"
+    end
 #    render :text => "Hiya! #{current_user.first_name} #{current_user.last_name}"
   end
 
@@ -43,7 +47,8 @@ class AuthController < ApplicationController
         :name => [current_user.first_name, current_user.last_name].join(" "),
         :email => current_user.email,
         :first_name => current_user.first_name,
-        :last_name => current_user.last_name
+        :last_name => current_user.last_name,
+        :school => current_user.school
       }
     }
     render :json => hash.to_json

@@ -1,10 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :get_host
+  def after_sign_in_path_for(resource)
+    "http://#{current_user.school}.#{STUDYEGG_PATH}"
+  end
   
-  def get_host
-    @subdomain = 'default'
-    @subdomain = request.subdomain if request.subdomain=='und'
+  def after_sign_out_path_for(resource_name)
+    "http://#{STUDYEGG_USER_MANAGER_PATH}"
+  end
+  
+  def set_subdomain(sub)
+    @subdomain = sub
+    @subdomain = 'default' if sub.nil?
+    cookies[:sub] = @subdomain
   end
 end

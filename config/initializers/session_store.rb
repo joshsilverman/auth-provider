@@ -6,7 +6,6 @@ studyegg_config = YAML.load_file(studyegg_config_file)[Rails.env].symbolize_keys
 puts studyegg_config[:domain]
 puts "#{studyegg_config[:domain]}"
 StudyeggUserManager::Application.config.session_store :cookie_store, :key => '_studyegg', :domain => :all
-#, :domain => studyegg_config[:domain]
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
