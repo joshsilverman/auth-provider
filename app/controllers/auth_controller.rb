@@ -1,7 +1,7 @@
 class AuthController < ApplicationController
   before_filter :authenticate_user!, :except => [:access_token]
   skip_before_filter :verify_authenticity_token, :only => [:access_token]
-
+  
   def welcome
     if params[:id]
       redirect_to "http://#{params[:id]}.#{STUDYEGG_PATH}"

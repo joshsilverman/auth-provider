@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
   def new
-    set_subdomain(params[:id])
+    @subdomain = (params[:id]) ? params[:id] : 'default'
     super
   end
   
@@ -19,7 +19,9 @@ class SessionsController < Devise::SessionsController
 
     # We actually need to hardcode this as Rails default responder doesn't
     # support returning empty response on GET request
-    redirect_to "http://#{STUDYEGG_STORE_PATH}"
+    sub = cookies[:sub]
+    sub = '' if sub=='default' or sub.nil?
+    redirect_to "http://#{STUDYEGG_USER_MANAGER_PATH}/#{sub}"
 #    respond_to do |format|
 #      format.any(*navigational_formats) { redirect_to redirect_path }
 #      format.all do
