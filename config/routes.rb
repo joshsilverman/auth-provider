@@ -19,7 +19,8 @@ StudyeggUserManager::Application.routes.draw do
   devise_scope :user do
     #match 'users/credit_card' => 'registrations#credit_card'
     #match 'users/update_credit_card' => 'registrations#update_credit_card'
-    root :to => 'auth#welcome'
+    match '/:id' => 'sessions#new'
+    root :to => 'sessions#new'
   end
   
 end
