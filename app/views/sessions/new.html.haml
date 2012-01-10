@@ -1,7 +1,9 @@
 %style= 'html {background: url('+request.protocol+request.host+':'+request.port.to_s+'/assets/splashes/'+@subdomain+'.jpg); background-size:auto 150%; background-position:0 -180px;}'
 %h2 
   .title
-    -unless @subdomain == 'default'
+    -if @subdomain == 'default'
+      = image_tag('/assets/splashes/SE_Shield.gif')
+    -else
       = image_tag('/assets/splashes/'+@subdomain+'-logo.png')
     %h4 login
 
