@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
     "http://#{STUDYEGG_USER_MANAGER_PATH}"
   end
   
+  def referrer
+    request.env['HTTP_REFERER']
+  end
 #  def set_subdomain(sub)
 #    @subdomain = sub
 #    @subdomain = 'default' if sub.nil?

@@ -12,6 +12,8 @@ class SessionsController < Devise::SessionsController
   end
   
   def destroy
+    puts "REFERRER: #{referrer}"
+    puts request.env['HTTP_REFERER']
     signed_in = signed_in?(resource_name)
     redirect_path = after_sign_out_path_for(resource_name)
     Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
@@ -19,8 +21,7 @@ class SessionsController < Devise::SessionsController
 
     # We actually need to hardcode this as Rails default responder doesn't
     # support returning empty response on GET request
-    sub = (cookies[:sub].nil?) ? '' : cookies[:sub]
-    redirect_to "#{STUDYEGG_USER_MANAGER_PATH}/#{sub}"
+    redirect_to "#{STUDYEGG_USER_MANAGER_PATH}"
 #    respond_to do |format|
 #      format.any(*navigational_formats) { redirect_to redirect_path }
 #      format.all do
