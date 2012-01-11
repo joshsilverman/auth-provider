@@ -13,7 +13,8 @@ class SessionsController < Devise::SessionsController
   
   def destroy
     referrer = request.env['HTTP_REFERER']
-    ref = referrer.to_s.gsub(/http:\/\//).gsub(/https:\/\//)
+    ref = referrer.to_s
+    ref.gsub!(/http:\/\//, '')
     if ref[-14..-1]=='zendolabs.com/'
       sub = ref[0..-16]
       sub = '' if sub == 'www'
