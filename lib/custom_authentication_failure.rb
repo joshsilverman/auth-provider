@@ -5,6 +5,7 @@ class CustomAuthenticationFailure < Devise::FailureApp
   def redirect_url
     referrer = request.env['HTTP_REFERER']
     puts "REFERRER! #{referrer}"
+    puts params[:redirect_uri]
     ref = referrer.to_s
     ref.gsub!(/http:\/\//, '')
     if ref[-14..-1]=='zendolabs.com/'
