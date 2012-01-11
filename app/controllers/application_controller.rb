@@ -12,8 +12,28 @@ class ApplicationController < ActionController::Base
   end
   
   def set_referrer
-    @@referrer = request.env['HTTP_REFERER']
+    request.env['HTTP_REFERER']
   end
+  
+  def authenticate_user!
+    if !current_user
+      referrer = set_referrer
+      puts "REFERRER! #{referrer}"
+      url = URI.parse(referrer.to_s)
+      ref = url.host
+      ref.gsub!(/http:\/\//, '')
+      if ref[-14..-1]=='zendolabs.com/'
+        sub = ref[0..-16]
+        puts sub
+        sub = '' if sub == 'www'
+      else
+        puts "ELSE"
+        sub = ''
+      end
+
+      redirect_to "#{STUDYEGG_USER_MANAGER_PATH}/#{sub}"
+    end
+  end 
 #  def set_subdomain(sub)
 #    @subdomain = sub
 #    @subdomain = 'default' if sub.nil?
