@@ -13,6 +13,12 @@ class SessionsController < Devise::SessionsController
   
   def destroy
     ref = request.env['HTTP_REFERER']
+    if ref[-14..-1]=='zendolabs.com/'
+      sub = ref[0..-16]
+      sub = '' if sub == 'www'
+    else
+      sub = ''
+    end
     signed_in = signed_in?(resource_name)
     redirect_path = after_sign_out_path_for(resource_name)
     Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
@@ -20,7 +26,7 @@ class SessionsController < Devise::SessionsController
 
     # We actually need to hardcode this as Rails default responder doesn't
     # support returning empty response on GET request
-    redirect_to "#{STUDYEGG_USER_MANAGER_PATH}/?ref=#{ref}"
+    redirect_to "#{STUDYEGG_USER_MANAGER_PATH}/#{sub}"
 #    respond_to do |format|
 #      format.any(*navigational_formats) { redirect_to redirect_path }
 #      format.all do
