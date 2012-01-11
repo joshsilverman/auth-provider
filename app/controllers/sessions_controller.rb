@@ -19,9 +19,7 @@ class SessionsController < Devise::SessionsController
 
     # We actually need to hardcode this as Rails default responder doesn't
     # support returning empty response on GET request
-    sub = cookies[:sub]
-    sub = '' if sub=='default' or sub.nil?
-    redirect_to "http://#{STUDYEGG_USER_MANAGER_PATH}/#{sub}"
+    redirect_to "#{STUDYEGG_USER_MANAGER_PATH}"
 #    respond_to do |format|
 #      format.any(*navigational_formats) { redirect_to redirect_path }
 #      format.all do
