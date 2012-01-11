@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     "http://#{STUDYEGG_USER_MANAGER_PATH}"
   end
   
-  def authenticate_user!
+  def authenticate_user!(resource)
     if !current_user
       puts "direct ref: #{request.env['HTTP_REFERER']}"
       puts "params[:redirect_uri] = #{params[:redirect_uri]}"
