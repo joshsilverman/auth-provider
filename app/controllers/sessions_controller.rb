@@ -12,12 +12,13 @@ class SessionsController < Devise::SessionsController
   end
   
   def destroy
+    puts "destroy current_user: #{current_user.school if current_user}"
     referrer = request.env['HTTP_REFERER']
     ref = referrer.to_s
     ref.gsub!(/http:\/\//, '')
     if ref[-14..-1]=='zendolabs.com/'
       sub = ref[0..-16]
-      sub = '' if sub == 'www'
+      sub = '' if sub == 'www' or sub == 'store'
     else
       sub = ''
     end
