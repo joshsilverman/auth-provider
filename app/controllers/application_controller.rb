@@ -17,14 +17,12 @@ class ApplicationController < ActionController::Base
         puts "params[:redirect_uri] = #{params[:redirect_uri]}"
         referrer = (params[:redirect_uri].nil?) ? '' : params[:redirect_uri]
         puts "REFERRER! #{referrer.to_s}"
-        url = URI.parse(referrer.to_s)
-        puts url.host
-        ref = url.host
-        ref.gsub!(/http:\/\//, '')
-        if ref[-14..-1]=='zendolabs.com/'
-          sub = ref[0..-16]
-          puts sub
-          sub = '' if sub == 'www'
+        domain = referrer.to_s.split(/.com/)
+        puts domain[0]
+        if domain[0][-9..-1]=='zendolabs'
+          sub = domain[0].gsub!(/http:\/\//, '')
+          subdomain = sub.split(/./)
+          sub = (subdomain[0] == 'www') ? '' : subdomain[0]
         else
           puts "ELSE"
           sub = ''
