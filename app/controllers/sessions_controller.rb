@@ -12,7 +12,8 @@ class SessionsController < Devise::SessionsController
   end
   
   def destroy
-    puts "destroy current_user: #{current_user.school if current_user}"
+    school = current_user.school if current_user
+    puts "destroy current_user: #{school}"
     referrer = request.env['HTTP_REFERER']
     ref = referrer.to_s
     ref.gsub!(/http:\/\//, '')
