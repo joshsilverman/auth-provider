@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
         if domain[0][-9..-1]=='zendolabs'
           sub = domain[0].gsub!(/http:\/\//, '')
           puts sub
-          subdomain = sub.split(/./)
+          subdomain = sub.split('.')
           puts subdomain[0]
           sub = (subdomain[0] == 'www') ? '' : subdomain[0]
           puts sub
