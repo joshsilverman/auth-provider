@@ -1,5 +1,6 @@
 class AuthController < ApplicationController
-  before_filter :authenticate_user!, :except => [:access_token]
+  before_filter :authenticate_user!, :except => [:access_token, :authorize]
+  before_filter :_authenticate_user, :only => [:authorize]
   skip_before_filter :verify_authenticity_token, :only => [:access_token]
   
   def welcome
