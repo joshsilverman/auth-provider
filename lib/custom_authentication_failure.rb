@@ -3,7 +3,7 @@ class CustomAuthenticationFailure < Devise::FailureApp
   protected 
   
   def redirect_url
-    referrer = request.env['HTTP_REFERER']
+    referrer = @@referrer
     puts "REFERRER! #{referrer}"
     puts params[:redirect_uri]
     ref = referrer.to_s
