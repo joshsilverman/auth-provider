@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   
   def _authenticate_user
     if !current_user
-      #begin
+      begin
         puts "params[:redirect_uri] = #{params[:redirect_uri]}"
         referrer = (params[:redirect_uri].nil?) ? '' : params[:redirect_uri]
         puts "REFERRER! #{referrer.to_s}"
@@ -33,9 +33,9 @@ class ApplicationController < ActionController::Base
 
         redirect_to "#{STUDYEGG_USER_MANAGER_PATH}/#{sub}"
       
-      #rescue
-      #  redirect_to "#{STUDYEGG_USER_MANAGER_PATH}"
-      #end
+      rescue
+        redirect_to "#{STUDYEGG_USER_MANAGER_PATH}"
+      end
     end
   end 
 end
