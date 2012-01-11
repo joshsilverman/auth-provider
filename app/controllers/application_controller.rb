@@ -13,23 +13,28 @@ class ApplicationController < ActionController::Base
   
   def _authenticate_user
     if !current_user
-      puts "direct ref: #{request.env['HTTP_REFERER']}"
-      puts "params[:redirect_uri] = #{params[:redirect_uri]}"
-      referrer = (request.env['HTTP_REFERER'].nil?) ? '' : request.env['HTTP_REFERER']
-      puts "REFERRER! #{referrer}"
-      url = URI.parse(referrer.to_s)
-      ref = url.host
-      ref.gsub!(/http:\/\//, '')
-      if ref[-14..-1]=='zendolabs.com/'
-        sub = ref[0..-16]
-        puts sub
-        sub = '' if sub == 'www'
-      else
-        puts "ELSE"
-        sub = ''
-      end
+      begin
+        puts "params[:redirect_uri] = #{params[:redirect_uri]}"
+        referrer = (params[:redirect_uri].nil?) ? '' : params[:redirect_uri]
+        puts "REFERRER! #{referrer.to_s}"
+        url = URI.parse(referrer.to_s)
+        puts url.host
+        ref = url.host
+        ref.gsub!(/http:\/\//, '')
+        if ref[-14..-1]=='zendolabs.com/'
+          sub = ref[0..-16]
+          puts sub
+          sub = '' if sub == 'www'
+        else
+          puts "ELSE"
+          sub = ''
+        end
 
-      redirect_to "#{STUDYEGG_USER_MANAGER_PATH}/#{sub}"
+        redirect_to "#{STUDYEGG_USER_MANAGER_PATH}/#{sub}"
+      
+      rescue
+        redirect_to "#{STUDYEGG_USER_MANAGER_PATH}"
+      end
     end
   end 
 #  def set_subdomain(sub)
