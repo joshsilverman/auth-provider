@@ -11,13 +11,11 @@ class ApplicationController < ActionController::Base
     "http://#{STUDYEGG_USER_MANAGER_PATH}"
   end
   
-  def set_referrer
-    request.env['HTTP_REFERER']
-  end
-  
   def authenticate_user!
     if !current_user
-      referrer = set_referrer
+      puts "direct ref: #{request.env['HTTP_REFERER']}"
+      puts "params[:redirect_uri] = #{params[:redirect_uri]}"
+      referrer = (request.env['HTTP_REFERER'].nil?) ? '' : request.env['HTTP_REFERER']
       puts "REFERRER! #{referrer}"
       url = URI.parse(referrer.to_s)
       ref = url.host
