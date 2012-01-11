@@ -169,4 +169,8 @@ Devise.setup do |config|
   #config.warden do |manager|
     #manager.default_strategies(:scope => :user).unshift(:custom_database_authenticatable)
   #end
+ 
+  config.warden do |manager|
+    manager.failure_app = CustomAuthenticationFailure
+  end
 end
