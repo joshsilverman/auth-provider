@@ -1,37 +1,57 @@
+#content {
+  display:inline;
+}
+
 .authentications_container, .form_container {
-    padding:10px;
+    padding:.62em 1em;
     float:left;
 }
 
 .authentications_container {
-    width: 230px;
     margin:33px 0 0 70px;
     p {
       clear:both;
       padding-top:10px;
     }
 }
-.user_edit{
+#shadow_box.users_edit {
+/*  width:550px;*/
+  
+  .title {
+    h4 {
+      margin:0em !important;
+      padding-left:0em !important;
+    }
+  }
+  
+  input[type=email], input[type=password], input[type=text] {
+    font-size:1em !important;
+    width:16em !important;
+  }
+
+  input[type=submit] {
+    display:block;
+    margin:.62em 0;
+    width:100% !important;
+  }
+  
   .form_container {
-      width: 300px;
-      input{width:200px; color: #595448;}
+      input{color: #595448;}
       .left, .right{margin-bottom: 10px;}
-      .left{width:150px; float: left;}
-      .right{width:200px; float: right;}
-      .password input, .password .right, .password .left{width:150px;}
-      .password { width:348px; margin:0 0 10px -10px}
+      .left{float: left;}
+      .right{float: right; margin-left:15px;}
+      .password {margin:0 0 10px}
   }
 }
 
 .credit_card{
   .form_container {
-      width: 300px;
       input{color: #595448;}
       .left, .right{margin-bottom: 10px;}
-      .left{width:150px; float: left;}
-      .right{width:200px; float: right;}
-      .password input, .password .right, .password .left{width:150px;}
-      .password { width:348px; margin:0 0 10px -10px}
+      .left{float: left;}
+      .right{float: right;}
+      .password input, .password .right, .password .left{}
+      .password {margin:0 0 10px -10px}
   }
 }
 
@@ -40,7 +60,6 @@
 }
 
 .authentication {
-  width: 190px;
   float: left;
   background-color: #EEE;
   border: solid 1px #999;
@@ -106,5 +125,3 @@
     border-top-right-radius: 5px 5px;
     -moz-border-radius:5px 5px 5px 5px;
 }
-
-#graphic{float:right; width:185px; height: 315px; margin: 10px -40px 0 0; background: url(brilliant2.png)}

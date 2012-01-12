@@ -1,0 +1,50 @@
+#shadow_box.users_edit
+  %h2 
+    .title
+      %h4= "Edit #{resource_name.to_s.humanize}"
+
+  .form_container
+      
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+      = devise_error_messages!
+      %div
+        .left= f.label :first_name
+        .right= f.text_field :first_name
+        .cl
+        .left= f.label :last_name
+        .right= f.text_field :last_name
+        .cl
+        .left= f.label :email
+        .right= f.text_field :email
+        .cl
+        
+        /<div class="left">Credit Card</div>
+        /<div class="right">
+        /<haml:silent>         if @credit_card
+        /</haml:silent><haml:block>        xxxx-xxxx-xxxx-<haml:loud> @credit_card </haml:loud> <a href="credit_card">Edit Card</a>
+        /</haml:block><haml:silent>         else
+        /</haml:silent><haml:block>        <a href="credit_card">Add new credit card</a>
+        /</haml:block>      </div>
+        /<div class="cl"></div>
+        .left
+          = f.label :password
+          %br
+        .right= f.password_field :password
+        .cl
+        .left= f.label :password_confirmation
+        .right= f.password_field :password_confirmation
+
+        .cl
+          %i (leave blank if you don't want to change it)
+          %br
+        / <p><haml:loud> link_to &quot;Edit Billing Information&quot;, &quot;/users/billing&quot; </haml:loud></p>
+        .left
+          = f.label :current_password
+          %br
+        .right= f.password_field :current_password
+        .cl
+        %i (we need your current password to confirm your changes)
+        %br
+        = f.submit "Update"
+    = link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete
+  .clr

@@ -5,3 +5,62 @@
  *= require_self
  *= require_tree . 
 */
+
+#main {
+  
+  .shell {
+    
+    #shadow_box {
+      float:left;
+      
+      margin: 70px 0 0 0px;
+/*      padding:8px;*/
+      color: #606060;
+      box-shadow: 0 1px .62em #333;
+      border-radius: .62em;
+/*      background:rgba(245, 249, 252, 0.90);*/
+      background:white;
+      
+      .title {
+        padding: 1em;
+        background: #F8F8F8;
+        border-bottom: 1px solid #EEE;
+        overflow: hidden;
+        border-radius: .62em .62em 0px 0px;
+        
+        img {
+          max-height:1.62em;
+          float:left;
+        }
+        
+        h4 {
+          float:left;
+          margin:10px;
+          padding-left:8px;
+        }
+      }
+      
+      input[type=email], input[type=password], input[type=text] {
+        width:345px;
+        border: solid #ccc 1px;
+        border-radius: 3px;
+        padding:.12em;
+        font-size:1.5em;
+      }
+
+      input[type=submit] {
+        width:345px;
+/*          border: solid #ccc 1px;*/
+/*          border-radius: 3px;*/
+        padding:.12em;
+        font-size:1.5em;
+        color:606060;
+      }
+
+      p {
+        font-size:1em;
+        margin:1em;
+      }
+    }
+  }
+}
