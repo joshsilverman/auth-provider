@@ -3,7 +3,7 @@ class AuthController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:access_token]
 
   def welcome
-    redirect_to "#{STUDYEGG_PATH}"
+    redirect_to "http://www.#{STUDYEGG_PATH}"
 #    render :text => "Hiya! #{current_user.first_name} #{current_user.last_name}"
   end
 
