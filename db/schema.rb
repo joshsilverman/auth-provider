@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219172437) do
+ActiveRecord::Schema.define(:version => 20120109153211) do
 
   create_table "access_grants", :force => true do |t|
     t.string   "code"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20111219172437) do
     t.datetime "updated_at"
     t.string   "credit_card"
     t.string   "stripe_customer_token"
+    t.string   "school"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
