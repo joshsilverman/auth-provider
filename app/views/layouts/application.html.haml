@@ -6,7 +6,7 @@
         %meta{:name=>"description", :content=>"StudyEgg automatically creates study guides from your notes and tracks how much you know. Spend less time studying and know your material better with StudyEgg!"}
         = csrf_meta_tag
         %link{:rel=>"shortcut icon", :href=>"assets/favicon.ico"}
-        %style= 'html {background: url('+request.protocol+request.host+':'+request.port.to_s+'/assets/splashes/'+@subdomain+'.jpg); background-size:auto 150%; background-position:0 -180px;}'
+        %style= 'body {background: url('+request.protocol+request.host+':'+request.port.to_s+'/assets/splashes/'+@subdomain+'.jpg);}'
     %body
         = render "layouts/header"
         .cl

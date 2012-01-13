@@ -6,6 +6,22 @@
  *= require_tree . 
 */
 
+body {
+  position:relative;
+  background-size:auto 150%; 
+  background-position:0 -180px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#footer {
+  float:left;
+  
+  position:absolute !important; 
+  bottom:1px; 
+  width:100%;}
+
 #main {
   
   .shell {
