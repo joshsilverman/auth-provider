@@ -1,36 +1,35 @@
-%style= 'html {background: url('+request.protocol+request.host+':'+request.port.to_s+'/assets/splashes/'+@subdomain+'.jpg); background-size:auto 150%; background-position:0 -180px;}'
-%h2 
-  .title
-    -if @subdomain == 'default'
-      = image_tag('/assets/splashes/SE_Shield.gif')
-    -else
-      = image_tag('/assets/splashes/'+@subdomain+'-logo.png')
-    %h4 login
+#shadow_box.sessions_new
+  %h2 
+    .title
+      -if @subdomain == 'default'
+        = image_tag('/assets/splashes/SE_Shield.gif')
+      -else
+        = image_tag('/assets/splashes/'+@subdomain+'-logo.png')
+      %h4 login
 
-.login-box
-  -unless flash[:notice].blank? && flash[:error].blank? && flash[:alert].blank?
-    .flash_container
-      -unless flash[:alert].blank?
-        .error
-          %p= flash[:alert]
-      -unless flash[:notice].blank?
-        .notice
-          %p= flash[:notice]
-      -unless flash[:error].blank?
-        .error
-          %p= flash[:error]
+  .login-box
+    -unless flash[:notice].blank? && flash[:error].blank? && flash[:alert].blank?
+      .flash_container
+        -unless flash[:alert].blank?
+          .error
+            %p= flash[:alert]
+        -unless flash[:notice].blank?
+          .notice
+            %p= flash[:notice]
+        -unless flash[:error].blank?
+          .error
+            %p= flash[:error]
 
-  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    %p
-      =# f.label :email
-      = f.email_field :email, :placeholder => 'email'
-    %p
-      =# f.label :password
-      = f.password_field :password, :placeholder => 'password'
-    %p= f.submit "Sign in"
-    - if devise_mapping.rememberable?
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
       %p
-        = f.check_box :remember_me
-        = f.label :remember_me
-  = render :partial => "social_networks"
-  =# render :partial => "devise/shared/links"
+        =# f.label :email
+        = f.email_field :email, :placeholder => 'email'
+      %p
+        =# f.label :password
+        = f.password_field :password, :placeholder => 'password'
+      %p= f.submit "Sign in"
+      - if devise_mapping.rememberable?
+        %p
+          = f.check_box :remember_me
+          = f.label :remember_me
+    = render :partial => "social_networks"
