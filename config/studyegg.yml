@@ -3,7 +3,7 @@ development:
 #  auth: http://localhost:3000
 #  qb: http://localhost:3001
 #  store: http://localhost:3002
-#  studyegg: http://localhost:3003
+#  studyegg: localhost:3003
 #
 #  domain: localhost
 #  auth: localhost:3000
@@ -12,9 +12,9 @@ development:
 #  studyegg: localhost:3003
 
   domain: .lvh.me
-  auth: lvh.me:3000
-  qb: lvh.me:3001
-  store: lvh.me:3002
+  auth: http://lvh.me:3000
+  qb: http://qb.lvh.me:3001
+  store: http://store.lvh.me:3002
   studyegg: lvh.me:3003
 
 test:
