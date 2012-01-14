@@ -2,6 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   #before_filter :save_referrer, :only => :edit
 
   def new
+    @subdomain = 'default'
      # Building the resource with information that MAY BE available from omniauth!
      build_resource
      render_with_scope :new
