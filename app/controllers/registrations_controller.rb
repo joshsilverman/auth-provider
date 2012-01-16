@@ -9,6 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def edit
+    @subdomain = 'default'
     puts current_user.inspect
     @credit_card = current_user.credit_card
     super
