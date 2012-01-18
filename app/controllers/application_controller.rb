@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  @subdomain='default'
+
+  def set_subdomain
+    @subdomain='default'
+  end
   
   def after_sign_in_path_for(resource)
     sub = current_user.school
