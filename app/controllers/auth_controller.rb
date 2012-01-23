@@ -16,8 +16,8 @@ class AuthController < ApplicationController
     install = JSON.parse(params[:install])
     puts install
     user_tokens = ["'#{install['user_token']}'"]
-    user = Edmodo.users(user_tokens)
-    puts user
+    #user = Edmodo.users(user_tokens)
+    puts user_tokens
     render :json => {:status => "success"}
   end
 
