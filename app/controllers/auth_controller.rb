@@ -1,5 +1,5 @@
 class AuthController < ApplicationController
-  before_filter :authenticate_user!, :except => [:access_token, :authorize]
+  before_filter :authenticate_user!, :except => [:access_token, :authorize, :install]
   before_filter :_authenticate_user, :only => [:authorize]
   skip_before_filter :verify_authenticity_token, :only => [:access_token]
   
@@ -10,6 +10,21 @@ class AuthController < ApplicationController
       redirect_to "http://www.#{STUDYEGG_PATH}"
     end
 #    render :text => "Hiya! #{current_user.first_name} #{current_user.last_name}"
+  end
+
+  def install
+    install = JSON.parse(params[:install])
+    puts install
+    user_tokens = ["'#{install['user_token']}'"]
+    user = Edmodo.users(user_tokens)
+    puts user
+    render :json => {:status => "success"}
+  end
+
+  def launch
+    user = Edmodo.launch_requests(params[:launch_key])
+    puts user
+    render :json => {:status => "success"}
   end
 
   def authorize
