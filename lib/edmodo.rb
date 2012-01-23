@@ -9,7 +9,7 @@ class Edmodo
   def self.launch_requests(launch_key)
     url = URI.parse("#{API_HOST}/#{VERSION}/launchRequests?api_key=#{API_KEY}&launch_key=#{launch_key}")
     req = Net::HTTP::Get.new(url.path)
-    res = Net::HTTP.start(url.host, url.port) {|http|
+    res = Net::HTTP.start(url.host, url.port, :use_ssl => url.scheme == 'https') {|http|
       http.request(req)
     }
     begin
@@ -25,7 +25,7 @@ class Edmodo
     tokens = user_tokens.join(',')
     url = URI.parse("#{API_HOST}/#{VERSION}/users?api_key=#{API_KEY}&user_tokens=[#{tokens}]")
     req = Net::HTTP::Get.new(url.path)
-    res = Net::HTTP.start(url.host, url.port) {|http|
+    res = Net::HTTP.start(url.host, url.port, :use_ssl => url.scheme == 'https') {|http|
       http.request(req)
     }
     begin
@@ -37,10 +37,10 @@ class Edmodo
     return response
   end
 
-  def self.members(launch_key)
-    url = URI.parse("#{API_HOST}/#{VERSION}/launchRequests?api_key=#{API_KEY}&launch_key=#{launch_key}")
+  def self.members(group_id)
+    url = URI.parse("#{API_HOST}/#{VERSION}/launchRequests?api_key=#{API_KEY}&group_id=#{group_id}")
     req = Net::HTTP::Get.new(url.path)
-    res = Net::HTTP.start(url.host, url.port) {|http|
+    res = Net::HTTP.start(url.host, url.port, :use_ssl => url.scheme == 'https') {|http|
       http.request(req)
     }
     begin
