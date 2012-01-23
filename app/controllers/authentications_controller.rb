@@ -46,6 +46,7 @@ class AuthenticationsController < ApplicationController
   # (Gautam)
   def create
     omniauth = request.env['omniauth.auth']
+    puts "AUTHENTICATIONS CREATE #{omniauth}"
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
 #      flash[:notice] = "Signed in successfully"

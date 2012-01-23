@@ -23,8 +23,11 @@ class AuthController < ApplicationController
 
   def launch
     user = Edmodo.launch_requests(params[:launch_key])
-    puts user
-    redirect_to 'http://store.zendolabs.com'
+    render :json => {:text => user}
+  end
+
+  def create_edmodo_user
+    @user = User.find_by_user_token()
   end
 
   def authorize
@@ -64,7 +67,9 @@ class AuthController < ApplicationController
         :email => current_user.email,
         :first_name => current_user.first_name,
         :last_name => current_user.last_name,
-        :school => current_user.school
+        :school => current_user.school,
+        :user_type => current_user.user_type,
+        :user_token => current_user.user_token
       }
     }
     render :json => hash.to_json
