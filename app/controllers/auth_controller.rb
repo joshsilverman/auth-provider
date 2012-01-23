@@ -24,7 +24,7 @@ class AuthController < ApplicationController
   def launch
     user = Edmodo.launch_requests(params[:launch_key])
     puts user
-    render :json => {:status => "success"}
+    redirect_to 'http://store.zendolabs.com'
   end
 
   def authorize
