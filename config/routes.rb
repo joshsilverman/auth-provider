@@ -9,6 +9,7 @@ StudyeggUserManager::Application.routes.draw do
 
   # edmodo
   match '/install' => 'auth#install'
+  match '/launch' => 'auth#launch'
 
   # Provider stuff
   match '/oauth/user' => 'auth#user'
