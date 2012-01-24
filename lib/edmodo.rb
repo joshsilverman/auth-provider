@@ -7,11 +7,12 @@ class Edmodo
   API_HOST = 'https://appsapi.edmodobox.com'
   
   def self.launch_requests(launch_key)
-    url = URI.parse("#{API_HOST}/#{VERSION}/launchRequests?api_key=#{API_KEY}&launch_key=#{launch_key}")
-    req = Net::HTTP::Get.new(url.path)
-    res = Net::HTTP.start(url.host, url.port, :use_ssl => url.scheme == 'https') {|http|
-      http.request(req)
-    }
+    uri = URI.parse(URI.encode("#{API_HOST}/#{VERSION}/launchRequests?api_key=#{API_KEY}&launch_key=#{launch_key}"))
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    request = Net::HTTP::Get.new(uri.request_uri)
+    res = http.request(request)
     begin
       response = JSON.parse(res.body)
     rescue
@@ -23,11 +24,13 @@ class Edmodo
 
   def self.users(user_tokens)
     tokens = user_tokens.join(',')
-    url = URI.parse("#{API_HOST}/#{VERSION}/users?api_key=#{API_KEY}&user_tokens=[#{tokens}]")
-    req = Net::HTTP::Get.new(url.path)
-    res = Net::HTTP.start(url.host, url.port, :use_ssl => url.scheme == 'https') {|http|
-      http.request(req)
-    }
+    puts tokens
+    uri = URI.parse(URI.encode("#{API_HOST}/#{VERSION}/users?api_key=#{API_KEY}&user_tokens=[#{tokens}]"))
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    request = Net::HTTP::Get.new(uri.request_uri)
+    res = http.request(request)
     begin
       response = JSON.parse(res.body)
     rescue
@@ -38,11 +41,12 @@ class Edmodo
   end
 
   def self.members(group_id)
-    url = URI.parse("#{API_HOST}/#{VERSION}/launchRequests?api_key=#{API_KEY}&group_id=#{group_id}")
-    req = Net::HTTP::Get.new(url.path)
-    res = Net::HTTP.start(url.host, url.port, :use_ssl => url.scheme == 'https') {|http|
-      http.request(req)
-    }
+    uri = URI.parse(URI.encode("#{API_HOST}/#{VERSION}/launchRequests?api_key=#{API_KEY}&group_id=#{group_id}"))
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    request = Net::HTTP::Get.new(uri.request_uri)
+    res = http.request(request)
     begin
       response = JSON.parse(res.body)
     rescue

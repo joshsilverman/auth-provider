@@ -23,11 +23,20 @@ class AuthController < ApplicationController
 
   def launch
     user = Edmodo.launch_requests(params[:launch_key])
-    render :json => {:text => user}
+    #tokens = ["\"330d83cb6\""]
+    json_user = JSON.parse(user)
+    puts json_user
+    create_edmodo_user(json_user)
+    render :json => json_user
   end
 
-  def create_edmodo_user
-    @user = User.find_by_user_token()
+  def create_edmodo_user(res)
+    user = User.find_by_user_token(res['user_token'])
+    if user
+      puts user.inspect
+    else
+      user = User.create!(:first_name => res['first_name'], :last_name => res['last_name'], :user_type => res['user_type'], :user_token => res['user_token'])
+    end
   end
 
   def authorize
