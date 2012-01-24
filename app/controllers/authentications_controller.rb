@@ -46,7 +46,7 @@ class AuthenticationsController < ApplicationController
   # (Gautam)
   def create
     omniauth = request.env['omniauth.auth']
-    omniauth = session['edmodo'] if params[:provider] = 'edmodo' and session['edmodo']
+    omniauth = session['edmodo'] if params[:provider] = 'edmodo'
     puts "AUTHENTICATIONS CREATE #{omniauth}"
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
