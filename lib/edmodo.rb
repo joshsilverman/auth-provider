@@ -24,7 +24,6 @@ class Edmodo
 
   def self.users(user_tokens)
     tokens = user_tokens.join(',')
-    puts tokens
     uri = URI.parse(URI.encode("#{API_HOST}/#{VERSION}/users?api_key=#{API_KEY}&user_tokens=[#{tokens}]"))
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true

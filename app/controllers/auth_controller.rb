@@ -16,9 +16,18 @@ class AuthController < ApplicationController
     install = JSON.parse(params[:install])
     puts install
     user_tokens = ["\"#{install['user_token']}\""]
-    user = Edmodo.users(user_tokens)
-    puts user_tokens
-    puts user
+    groups = install['groups']
+    puts groups
+    groups.each do |group_id|
+      group_users = Edmodo.members(group_id)
+      group_users.each do |user|
+        puts user
+        u = Authentication.find_by_provider_and_uid('edmodo', user['user_token'])
+        unless u
+          create_edmodo_user(edmodo_omniauth(user))
+        end
+      end
+    end
     render :json => {:status => "success"}
   end
 
