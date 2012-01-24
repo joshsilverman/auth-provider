@@ -23,7 +23,12 @@ class AuthController < ApplicationController
 
   def launch
     user = Edmodo.launch_requests(params[:launch_key])
-    #tokens = ["\"330d83cb6\""]
+    #user = {"user_token" => "123456789", "first_name" => "Bill", "last_name" => "DeRusha",
+    #        "email" => "", "user_type" => "TEACHER"}
+    puts user['email']
+    puts user['email'].nil?
+    puts user['email'].blank?
+    puts user['email'].empty?
     session['edmodo'] = {"provider"=>"edmodo",
                             "uid"=>"#{user['user_token']}",
                             "info"=>{"name"=>"#{user['first_name']} #{user['last_name']}",
@@ -50,8 +55,6 @@ class AuthController < ApplicationController
     puts "LAUNCH"
     puts session['edmodo']
     redirect_to "/auth/edmodo/callback"
-    #create_edmodo_user(json_user)
-    #render :json => user
   end
 
   def create_edmodo_user(res)
