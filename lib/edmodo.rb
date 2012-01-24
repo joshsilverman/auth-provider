@@ -40,7 +40,7 @@ class Edmodo
   end
 
   def self.members(group_id)
-    uri = URI.parse(URI.encode("#{API_HOST}/#{VERSION}/launchRequests?api_key=#{API_KEY}&group_id=#{group_id}"))
+    uri = URI.parse(URI.encode("#{API_HOST}/#{VERSION}/members?api_key=#{API_KEY}&group_id=#{group_id}"))
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
