@@ -26,7 +26,7 @@ class AuthController < ApplicationController
     #tokens = ["\"330d83cb6\""]
     json_user = JSON.parse(user)
     puts json_user
-    create_edmodo_user(json_user)
+    #create_edmodo_user(json_user)
     render :json => json_user
   end
 
