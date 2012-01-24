@@ -28,7 +28,8 @@ class AuthController < ApplicationController
     puts user['email']
     puts user['email'].nil?
     puts user['email'].blank?
-    puts user['email'].empty?
+    puts user
+    user['email'] = "#{user['user_token']}edmodo@studyegg.com" if user['email'].nil?
     session['edmodo'] = {"provider"=>"edmodo",
                             "uid"=>"#{user['user_token']}",
                             "info"=>{"name"=>"#{user['first_name']} #{user['last_name']}",
