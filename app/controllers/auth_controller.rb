@@ -24,9 +24,34 @@ class AuthController < ApplicationController
   def launch
     user = Edmodo.launch_requests(params[:launch_key])
     #tokens = ["\"330d83cb6\""]
-    puts user
+    session['edmodo'] = {"provider"=>"edmodo",
+                            "uid"=>"#{user['user_token']}",
+                            "info"=>{"name"=>"#{user['first_name']} #{user['last_name']}",
+                                    "email"=>"#{user['email'] if user['email']}",
+                                    "first_name"=>"#{user['first_name']}",
+                                    "last_name"=>"#{user['last_name']}",
+                                    "school"=>"edmodo",
+                                    "user_type"=>"#{user['user_type']}",
+                                    "user_token"=>"#{user['user_token']}"},
+                            "credentials"=>{"token"=>"",
+                                    "refresh_token"=>"",
+                                    "expires_at"=>nil,
+                                    "expires"=>false},
+                            "extra"=>{
+                              "user_hash"=>{"provider"=>"edmodo",
+                                                "uid"=>"#{user['user_token']}",
+                                                "info"=>{"name"=>"#{user['first_name']} #{user['last_name']}",
+                                                        "email"=>"#{user['email'] if user['email']}",
+                                                        "first_name"=>"#{user['first_name']}",
+                                                        "last_name"=>"#{user['last_name']}",
+                                                        "school"=>"edmodo",
+                                                        "user_type"=>"#{user['user_type']}",
+                                                        "user_token"=>"#{user['user_token']}"}}}}
+    puts "LAUNCH"
+    puts session['edmodo']
+    redirect_to "/auth/edmodo/callback"
     #create_edmodo_user(json_user)
-    render :json => user
+    #render :json => user
   end
 
   def create_edmodo_user(res)

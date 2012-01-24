@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
     self.status = "Active"
     self.expiration_date = 1.year.from_now
   end
+
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
+  end
 end

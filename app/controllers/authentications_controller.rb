@@ -46,6 +46,7 @@ class AuthenticationsController < ApplicationController
   # (Gautam)
   def create
     omniauth = request.env['omniauth.auth']
+    omniauth = session['edmodo'] if params[:provider] = 'edmodo' and session['edmodo']
     puts "AUTHENTICATIONS CREATE #{omniauth}"
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
@@ -54,13 +55,19 @@ class AuthenticationsController < ApplicationController
     else
       user = User.new
       user.apply_omniauth(omniauth)
-      user.email = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['email']
+      user.email = omniauth['extra'] && omniauth['extra']['user_hash'] && (omniauth['extra']['user_hash']['email'] || (omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['email']))
+      user.first_name = omniauth['extra'] && omniauth['extra']['user_hash'] && (omniauth['extra']['user_hash']['first_name'] || (omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['first_name']))
+      user.last_name = omniauth['extra'] && omniauth['extra']['user_hash'] && (omniauth['extra']['user_hash']['last_name'] || (omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['last_name']))
+      user.school = user.first_name = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['school']
+      user.user_type = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['user_type']
+      user.user_token = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['user_token']
+
       if user.save
         flash[:notice] = "Successfully registered"
         sign_in_and_redirect(:user, user)
       else
         session[:omniauth] = omniauth.except('extra')
-        session[:omniauth_email] = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['email']
+        session[:omniauth_email] = omniauth['extra'] && omniauth['extra']['user_hash'] && (omniauth['extra']['user_hash']['email'] || (omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['email']))
 
         # Check if email already taken. If so, ask user to link_accounts
         if user.errors[:email][0] =~ /has already been taken/ # omniauth? TBD
@@ -73,7 +80,7 @@ class AuthenticationsController < ApplicationController
     end
   end
 
-  def faiure
+  def failure
     flash[:notice] = params[:message]
     redirect_to root_path
   end
