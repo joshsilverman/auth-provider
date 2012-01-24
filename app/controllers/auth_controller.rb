@@ -18,6 +18,7 @@ class AuthController < ApplicationController
     user_tokens = ["\"#{install['user_token']}\""]
     user = Edmodo.users(user_tokens)
     puts user_tokens
+    puts user
     render :json => {:status => "success"}
   end
 
@@ -25,12 +26,14 @@ class AuthController < ApplicationController
     user = Edmodo.launch_requests(params[:launch_key])
     #user = {"user_token" => "123456789", "first_name" => "Bill", "last_name" => "DeRusha",
     #        "email" => "", "user_type" => "TEACHER"}
-    puts user['email']
-    puts user['email'].nil?
-    puts user['email'].blank?
     puts user
+    session['edmodo'] = edmodo_omniauth(user)
+    redirect_to "/auth/edmodo/callback"
+  end
+
+  def edmodo_omniauth(user)
     user['email'] = "#{user['user_token']}edmodo@studyegg.com" if user['email'].nil?
-    session['edmodo'] = {"provider"=>"edmodo",
+    omniauth = {"provider"=>"edmodo",
                             "uid"=>"#{user['user_token']}",
                             "info"=>{"name"=>"#{user['first_name']} #{user['last_name']}",
                                     "email"=>"#{user['email'] if user['email']}",
@@ -53,17 +56,26 @@ class AuthController < ApplicationController
                                                         "school"=>"edmodo",
                                                         "user_type"=>"#{user['user_type']}",
                                                         "user_token"=>"#{user['user_token']}"}}}}
-    puts "LAUNCH"
-    puts session['edmodo']
-    redirect_to "/auth/edmodo/callback"
+    omniauth
   end
 
-  def create_edmodo_user(res)
-    user = User.find_by_user_token(res['user_token'])
-    if user
-      puts user.inspect
-    else
-      user = User.create!(:first_name => res['first_name'], :last_name => res['last_name'], :user_type => res['user_type'], :user_token => res['user_token'])
+  def create_edmodo_user(omniauth)
+    authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
+    unless authentication
+      user = User.new
+      user.apply_omniauth(omniauth)
+      user.email = omniauth['extra'] && omniauth['extra']['user_hash'] && (omniauth['extra']['user_hash']['email'] || (omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['email']))
+      user.first_name = omniauth['extra'] && omniauth['extra']['user_hash'] && (omniauth['extra']['user_hash']['first_name'] || (omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['first_name']))
+      user.last_name = omniauth['extra'] && omniauth['extra']['user_hash'] && (omniauth['extra']['user_hash']['last_name'] || (omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['last_name']))
+      user.school = user.first_name = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['school']
+      user.user_type = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['user_type']
+      user.user_token = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['user_token']
+
+      if user.save
+        puts "Created User: #{user.first_name} #{user.last_name} - #{user.user_token}"
+      else
+        puts "Error saving user #{omniauth['uid']}"
+      end
     end
   end
 
