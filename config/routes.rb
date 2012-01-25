@@ -20,6 +20,10 @@ StudyeggUserManager::Application.routes.draw do
   match 'authentications/:user_id/link' => 'authentications#link', :as => :link_accounts
   match 'authentications/:user_id/add' => 'authentications#add', :as => :add_account
  
+  # API Calls
+  match "api/get_students_by_teacher_id/:teacher_id" => "api#get_students_by_teacher_id"
+  match "api/get_students_by_teacher_email" => "api#get_students_by_teacher_email"
+
   devise_scope :user do
     #match 'users/credit_card' => 'registrations#credit_card'
     #match 'users/update_credit_card' => 'registrations#update_credit_card'
