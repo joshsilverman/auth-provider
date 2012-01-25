@@ -16,13 +16,15 @@
 # )
 
 teacher = User.first(:conditions => {:email => "jason@studyegg.com"})
-
-25.times do |number|
-	student = User.new
-	student.email = "student#{number}@studyegg.com"
-	student.password = "password"
-	student.teacher_id = teacher.id
-	student.first_name = "First"
-	student.last_name = "Last"
-	student.save	
+teacher.groups.each do |group|
+    25.times do |number|
+      student = User.new
+      student.email = "student#{number}@studyegg.com"
+      student.password = "password"
+      student.first_name = "First (#{number})"
+      student.last_name = "Last (#{number})"
+      student.save    
+      group.users << student
+    end   
 end
+
