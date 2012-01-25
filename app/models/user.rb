@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   self.token_authentication_key = "oauth_token"
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :credit_card, :stripe_customer_token, :school, :teacher, :teacher_id
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :credit_card, :stripe_customer_token, :school, :teacher, :teacher_id, :id
 
   def apply_omniauth(omniauth)
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])

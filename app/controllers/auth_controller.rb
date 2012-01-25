@@ -51,7 +51,8 @@ class AuthController < ApplicationController
         :last_name => current_user.last_name,
         :school => current_user.school,
         :teacher => current_user.teacher,
-        :teacher_id => current_user.teacher_id
+        :teacher_id => current_user.teacher_id,
+        :user_id => current_user.id
       }
     }
     render :json => hash.to_json
