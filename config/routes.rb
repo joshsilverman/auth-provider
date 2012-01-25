@@ -8,10 +8,6 @@ StudyeggUserManager::Application.routes.draw do
   match '/auth/failure', :to => 'authentications#failure'
   match '/logout' => 'authentications#logout'
 
-  # edmodo
-  match '/install' => 'auth#install'
-  match '/launch' => 'auth#launch'
-
   # Provider stuff
   match '/oauth/user' => 'auth#user'
   match '/oauth/token' => 'auth#access_token'

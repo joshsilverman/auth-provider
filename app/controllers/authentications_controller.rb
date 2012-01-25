@@ -46,8 +46,6 @@ class AuthenticationsController < ApplicationController
   # (Gautam)
   def create
     omniauth = request.env['omniauth.auth']
-    omniauth = session['edmodo'] if params[:provider] = 'edmodo'
-    puts "AUTHENTICATIONS CREATE #{omniauth}"
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
 #      flash[:notice] = "Signed in successfully"
@@ -58,9 +56,9 @@ class AuthenticationsController < ApplicationController
       user.email = omniauth['extra'] && omniauth['extra']['user_hash'] && (omniauth['extra']['user_hash']['email'] || (omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['email']))
       user.first_name = omniauth['extra'] && omniauth['extra']['user_hash'] && (omniauth['extra']['user_hash']['first_name'] || (omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['first_name']))
       user.last_name = omniauth['extra'] && omniauth['extra']['user_hash'] && (omniauth['extra']['user_hash']['last_name'] || (omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['last_name']))
-      user.school = user.first_name = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['school']
-      user.user_type = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['user_type']
-      user.user_token = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['user_token']
+      # user.school = user.first_name = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['school']
+      # user.user_type = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['user_type']
+      # user.user_token = omniauth['extra'] && omniauth['extra']['user_hash'] && omniauth['extra']['user_hash']['info'] && omniauth['extra']['user_hash']['info']['user_token']
 
       if user.save
         flash[:notice] = "Successfully registered"
