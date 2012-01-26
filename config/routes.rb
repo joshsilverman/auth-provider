@@ -25,6 +25,7 @@ StudyeggUserManager::Application.routes.draw do
   match "api/get_groups_by_user_id" => "api#get_groups_by_user_id"
   match "api/get_students_by_teacher_id/:teacher_id" => "api#get_students_by_teacher_id"
   match "api/get_students_by_teacher_email" => "api#get_students_by_teacher_email"
+  match "api/get_students_by_group_id" => "api#get_students_by_group_id"
 
   devise_scope :user do
     #match 'users/credit_card' => 'registrations#credit_card'

@@ -15,16 +15,21 @@
 #   :expiration_date => "2020-01-01"
 # )
 
-teacher = User.first(:conditions => {:email => "jason@studyegg.com"})
+teacher = User.create!(:email => "jason@studyegg.com", :password => "password", :first_name => "Jason", :last_name => "Urton")
+class1 = Group.create!(:edmodo_id => 1, :title => "Introduction to Biology (Section 1)")
+class2 = Group.create!(:edmodo_id => 2, :title => "Introduction to Biology (Section 2)")
+teacher.groups << class1
+teacher.groups << class2
+
 teacher.groups.each do |group|
+    puts "#{group}\n\n"
     25.times do |number|
-      student = User.new
-      student.email = "student#{number}@studyegg.com"
-      student.password = "password"
-      student.first_name = "First (#{number})"
-      student.last_name = "Last (#{number})"
-      student.save    
-      group.users << student
+      group.users << User.create!(
+        :email => "student#{group.id}_#{number}@studyegg.com",
+        :password => "password",
+        :first_name => "First (#{number})",
+        :last_name => "Last (#{number})"
+      )
     end   
 end
 
