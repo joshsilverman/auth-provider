@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(:version => 20120125173646) do
     t.string   "credit_card"
     t.string   "stripe_customer_token"
     t.string   "school"
+    t.boolean  "teacher"
+    t.integer  "teacher_id"
     t.string   "user_type"
     t.string   "user_token"
   end
