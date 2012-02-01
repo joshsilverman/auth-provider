@@ -1,5 +1,27 @@
 class ApiController < ApplicationController
 
+    def get_edmodo_id
+        puts "GET ID"
+        user = User.find_by_user_token(params[:user_token])
+        unless user
+            puts "MAKE A NEW ONE!"
+            u = User.new
+            u.user_token = params[:user_token]
+            u.email = "#{params[:user_token]}edmodo@studyegg.com"
+            u.password = params[:user_token]
+            u.password_confirmation = params[:user_token]
+            if u.save!
+                puts "saved"
+            else
+                puts "error saving"
+            end
+            user = u
+
+        end
+        puts user.id
+        render :json => user
+    end
+
     def get_groups_by_user_id
         render :json => User.find(params[:user_id].to_i).groups
     end
