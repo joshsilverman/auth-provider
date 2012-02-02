@@ -4,7 +4,6 @@ class ApiController < ApplicationController
         puts "GET ID"
         user = User.find_by_user_token(params[:user_token])
         unless user
-            puts "MAKE A NEW ONE!"
             u = User.new
             u.user_token = params[:user_token]
             u.email = "#{params[:user_token]}edmodo@studyegg.com"
