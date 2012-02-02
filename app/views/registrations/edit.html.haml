@@ -1,4 +1,4 @@
-%style body {min-height:690px;} .usernav {display:block !important;}
+%style body {min-height:770px;} .usernav {display:block !important;}
 #shadow_box.users_edit
   %h2 
     .title
@@ -29,7 +29,6 @@
         /<div class="cl"></div>
         .left
           = f.label :password
-          %br
         .right= f.password_field :password
         .cl
         .left= f.label :password_confirmation
@@ -39,9 +38,9 @@
           %i (leave blank if you don't want to change it)
           %br
         / <p><haml:loud> link_to &quot;Edit Billing Information&quot;, &quot;/users/billing&quot; </haml:loud></p>
+        %br
         .left
           = f.label :current_password
-          %br
         .right= f.password_field :current_password
         .cl
         %i (we need your current password to confirm your changes)

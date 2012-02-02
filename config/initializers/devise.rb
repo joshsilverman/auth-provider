@@ -14,6 +14,7 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
+  config.case_insensitive_keys = [:email]
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating an user. By default is
   # just :email. You can configure it to use [:username, :subdomain], so for
