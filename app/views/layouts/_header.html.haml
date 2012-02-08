@@ -10,13 +10,13 @@
           %a.notext{:href=>"http://#{sub}.#{STUDYEGG_PATH}"} Logo
         .usernav
           -if current_user.nil?
-            %a.first.active{:href=>"#{STUDYEGG_STORE_PATH}"} Library
+            //%a.first.active{:href=>"#{STUDYEGG_STORE_PATH}"} Library
             %ul
               %li
                 %a.first.active{:href=>"#{STUDYEGG_USER_MANAGER_PATH}"} Login
           -else
             %a.first.active{:href=>"http://www.#{STUDYEGG_PATH}"} My Eggs
-            %a{:href=>"#{STUDYEGG_STORE_PATH}"} Library
+            //%a{:href=>"#{STUDYEGG_STORE_PATH}"} Library
             %ul
               %li
                 %a.first{:href=>"#{STUDYEGG_USER_MANAGER_PATH}/users/edit"} Account
