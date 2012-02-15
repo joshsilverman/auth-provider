@@ -5,9 +5,13 @@ group :development do
   #gem 'guard-livereload'
 end
 
+gem "rspec-rails", :group => [:test, :development]
 group :test do
   gem 'sqlite3', :require => false
   gem 'turn', :require => false
+  gem "factory_girl_rails"
+  gem "capybara"
+  # gem "guard-rspec"
 end
 
 group :production do
