@@ -27,11 +27,10 @@
         /</haml:silent><haml:block>        <a href="credit_card">Add new credit card</a>
         /</haml:block>      </div>
         /<div class="cl"></div>
-        .left
-          = f.label :password
+        .left= f.label "new password"
         .right= f.password_field :password
         .cl
-        .left= f.label :password_confirmation
+        .left= f.label "new password confirmation"
         .right= f.password_field :password_confirmation
 
         .cl
