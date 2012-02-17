@@ -1,0 +1,1501 @@
+2012-02-16T23:09:16+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:09:16+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:09:16 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:09:16+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=17ms status=302 bytes=173
+2012-02-16T23:09:16+00:00 app[web.1]: 
+2012-02-16T23:09:16+00:00 app[web.1]: 
+2012-02-16T23:09:16+00:00 app[web.1]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:09:16 +0000
+2012-02-16T23:09:16+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:09:16+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"dd1fc4f5727798c3343042124f5545c9", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:09:16+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=23ms status=200 bytes=120
+2012-02-16T23:09:16+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:09:16 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:09:16+00:00 app[web.1]: Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 13.9ms)
+2012-02-16T23:09:16+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:09:16+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=85fc5e52c99734f39c9012dd3cfa5c4b" for 184.72.142.63 at 2012-02-16 23:09:16 +0000
+2012-02-16T23:09:16+00:00 app[web.1]: 
+2012-02-16T23:09:16+00:00 app[web.1]: 
+2012-02-16T23:09:16+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:09:16+00:00 app[web.1]:   Parameters: {"oauth_token"=>"85fc5e52c99734f39c9012dd3cfa5c4b"}
+2012-02-16T23:09:16+00:00 app[web.1]: Completed 500 Internal Server Error in 8ms
+2012-02-16T23:09:16+00:00 app[web.1]: 
+2012-02-16T23:09:16+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000005f36100>):
+2012-02-16T23:09:16+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:09:16+00:00 app[web.1]: 
+2012-02-16T23:09:16+00:00 app[web.1]: 
+2012-02-16T23:09:16+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=85fc5e52c99734f39c9012dd3cfa5c4b] miss
+2012-02-16T23:09:16+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=14ms status=500 bytes=728
+2012-02-16T23:09:16+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:09:16 +0000] "GET /oauth/user.json?oauth_token=85fc5e52c99734f39c9012dd3cfa5c4b HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:09:17+00:00 app[web.2]: 
+2012-02-16T23:09:17+00:00 app[web.2]: 
+2012-02-16T23:09:17+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:09:17 +0000
+2012-02-16T23:09:17+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:09:17+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:09:17+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=82fd9e6a856cac16d51a2982556a8081&response_type=code
+2012-02-16T23:09:17+00:00 app[web.2]: Completed 302 Found in 62ms
+2012-02-16T23:09:17+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:09:17+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=68ms status=302 bytes=173
+2012-02-16T23:09:17+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:09:17 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:09:17+00:00 app[web.2]: 
+2012-02-16T23:09:17+00:00 app[web.2]: 
+2012-02-16T23:09:17+00:00 app[web.2]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:09:17 +0000
+2012-02-16T23:09:17+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:09:17+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"82fd9e6a856cac16d51a2982556a8081", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:09:17+00:00 app[web.2]: Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 6.7ms)
+2012-02-16T23:09:17+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:09:17+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=16ms status=200 bytes=120
+2012-02-16T23:09:17+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:09:17 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:09:17+00:00 app[web.2]: 
+2012-02-16T23:09:17+00:00 app[web.2]: 
+2012-02-16T23:09:17+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=6fcb68962bff1024ee64d84f5f99c357" for 184.72.142.63 at 2012-02-16 23:09:17 +0000
+2012-02-16T23:09:17+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:09:17+00:00 app[web.2]:   Parameters: {"oauth_token"=>"6fcb68962bff1024ee64d84f5f99c357"}
+2012-02-16T23:09:17+00:00 app[web.2]: Completed 500 Internal Server Error in 39ms
+2012-02-16T23:09:17+00:00 app[web.2]: 
+2012-02-16T23:09:17+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x00000005f6c0c0>):
+2012-02-16T23:09:17+00:00 app[web.2]: 
+2012-02-16T23:09:17+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:09:17+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=6fcb68962bff1024ee64d84f5f99c357] miss
+2012-02-16T23:09:17+00:00 app[web.2]: 
+2012-02-16T23:09:17+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=45ms status=500 bytes=728
+2012-02-16T23:09:17+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:09:17 +0000] "GET /oauth/user.json?oauth_token=6fcb68962bff1024ee64d84f5f99c357 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:12:21+00:00 app[web.2]: 
+2012-02-16T23:12:21+00:00 app[web.2]: 
+2012-02-16T23:12:21+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:12:21 +0000
+2012-02-16T23:12:21+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:12:21+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:21+00:00 app[web.2]: Completed 302 Found in 12ms
+2012-02-16T23:12:21+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=2ad853c32cfb98b152522b550e5b1e79&response_type=code
+2012-02-16T23:12:21+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:12:21+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=21ms status=302 bytes=173
+2012-02-16T23:12:21+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:12:21 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:12:21+00:00 app[web.1]: 
+2012-02-16T23:12:21+00:00 app[web.1]: 
+2012-02-16T23:12:21+00:00 app[web.1]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:12:21 +0000
+2012-02-16T23:12:21+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:12:21+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"2ad853c32cfb98b152522b550e5b1e79", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:21+00:00 app[web.1]: Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 6.9ms)
+2012-02-16T23:12:21+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:12:21+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=18ms status=200 bytes=120
+2012-02-16T23:12:21+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:12:21 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:12:21+00:00 app[web.2]: 
+2012-02-16T23:12:21+00:00 app[web.2]: 
+2012-02-16T23:12:21+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=434c2118a131c598f5e0259975677ade" for 184.72.142.63 at 2012-02-16 23:12:21 +0000
+2012-02-16T23:12:21+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:12:21+00:00 app[web.2]:   Parameters: {"oauth_token"=>"434c2118a131c598f5e0259975677ade"}
+2012-02-16T23:12:21+00:00 app[web.2]: Completed 500 Internal Server Error in 10ms
+2012-02-16T23:12:21+00:00 app[web.2]: 
+2012-02-16T23:12:21+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x00000005ea1500>):
+2012-02-16T23:12:21+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:12:21+00:00 app[web.2]: 
+2012-02-16T23:12:21+00:00 app[web.2]: 
+2012-02-16T23:12:21+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=434c2118a131c598f5e0259975677ade] miss
+2012-02-16T23:12:21+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=21ms status=500 bytes=728
+2012-02-16T23:12:21+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:12:21 +0000] "GET /oauth/user.json?oauth_token=434c2118a131c598f5e0259975677ade HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:12:22 +0000
+2012-02-16T23:12:22+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:12:22+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:22+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=00c49b4ab915b60467323e80222fc3e7&response_type=code
+2012-02-16T23:12:22+00:00 app[web.1]: Completed 302 Found in 11ms
+2012-02-16T23:12:22+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:12:22+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=20ms status=302 bytes=173
+2012-02-16T23:12:22+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:12:22 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:12:22 +0000
+2012-02-16T23:12:22+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:12:22+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"00c49b4ab915b60467323e80222fc3e7", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:22+00:00 app[web.1]: Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 8.2ms)
+2012-02-16T23:12:22+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:12:22+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=17ms status=200 bytes=120
+2012-02-16T23:12:22+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:12:22 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=edae5a4c888acddfd7dbd5a4c96f9b1a" for 184.72.142.63 at 2012-02-16 23:12:22 +0000
+2012-02-16T23:12:22+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:12:22+00:00 app[web.1]:   Parameters: {"oauth_token"=>"edae5a4c888acddfd7dbd5a4c96f9b1a"}
+2012-02-16T23:12:22+00:00 app[web.1]: Completed 500 Internal Server Error in 9ms
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000005c3fca8>):
+2012-02-16T23:12:22+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=edae5a4c888acddfd7dbd5a4c96f9b1a] miss
+2012-02-16T23:12:22+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=72ms status=500 bytes=728
+2012-02-16T23:12:22+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:12:22 +0000] "GET /oauth/user.json?oauth_token=edae5a4c888acddfd7dbd5a4c96f9b1a HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:12:22 +0000
+2012-02-16T23:12:22+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:12:22+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:22+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=c5eb412ed736d432241dab53d72e4bfe&response_type=code
+2012-02-16T23:12:22+00:00 app[web.1]: Completed 302 Found in 50ms
+2012-02-16T23:12:22+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:12:22+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=83ms status=302 bytes=173
+2012-02-16T23:12:22+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:12:22 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:12:22+00:00 app[web.2]: 
+2012-02-16T23:12:22+00:00 app[web.2]: 
+2012-02-16T23:12:22+00:00 app[web.2]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:12:22 +0000
+2012-02-16T23:12:22+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"c5eb412ed736d432241dab53d72e4bfe", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:22+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:12:22+00:00 app[web.2]: Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 15.1ms)
+2012-02-16T23:12:22+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:12:22+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=24ms status=200 bytes=120
+2012-02-16T23:12:22+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:12:22 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=10a13ce41717e946c2dbd0e512f55290" for 50.17.69.62 at 2012-02-16 23:12:22 +0000
+2012-02-16T23:12:22+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:12:22+00:00 app[web.1]:   Parameters: {"oauth_token"=>"10a13ce41717e946c2dbd0e512f55290"}
+2012-02-16T23:12:22+00:00 app[web.1]: Completed 500 Internal Server Error in 23ms
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000005a06c20>):
+2012-02-16T23:12:22+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=10a13ce41717e946c2dbd0e512f55290] miss
+2012-02-16T23:12:22+00:00 app[web.1]: 
+2012-02-16T23:12:22+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=36ms status=500 bytes=728
+2012-02-16T23:12:22+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:12:22 +0000] "GET /oauth/user.json?oauth_token=10a13ce41717e946c2dbd0e512f55290 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:12:23+00:00 app[web.2]: 
+2012-02-16T23:12:23+00:00 app[web.2]: 
+2012-02-16T23:12:23+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:12:23 +0000
+2012-02-16T23:12:23+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:12:23+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:23+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=bac04b6c2f9d57327c4507a374993f83&response_type=code
+2012-02-16T23:12:23+00:00 app[web.2]: Completed 302 Found in 37ms
+2012-02-16T23:12:23+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:12:23+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=45ms status=302 bytes=173
+2012-02-16T23:12:23+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:12:23 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:12:23+00:00 app[web.2]: 
+2012-02-16T23:12:23+00:00 app[web.2]: 
+2012-02-16T23:12:23+00:00 app[web.2]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:12:23 +0000
+2012-02-16T23:12:23+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:12:23+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"bac04b6c2f9d57327c4507a374993f83", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:23+00:00 app[web.2]: Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 6.4ms)
+2012-02-16T23:12:23+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:12:23+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=14ms status=200 bytes=120
+2012-02-16T23:12:23+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:12:23 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:12:23+00:00 app[web.2]: 
+2012-02-16T23:12:23+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=eb21e8a4c8dbc34a967a7242e658bd5b" for 184.72.142.63 at 2012-02-16 23:12:23 +0000
+2012-02-16T23:12:23+00:00 app[web.2]: 
+2012-02-16T23:12:23+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:12:23+00:00 app[web.2]:   Parameters: {"oauth_token"=>"eb21e8a4c8dbc34a967a7242e658bd5b"}
+2012-02-16T23:12:23+00:00 app[web.2]: Completed 500 Internal Server Error in 9ms
+2012-02-16T23:12:23+00:00 app[web.2]: 
+2012-02-16T23:12:23+00:00 app[web.2]: 
+2012-02-16T23:12:23+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:12:23+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x00000005d16140>):
+2012-02-16T23:12:23+00:00 app[web.2]: 
+2012-02-16T23:12:23+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=eb21e8a4c8dbc34a967a7242e658bd5b] miss
+2012-02-16T23:12:23+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=15ms status=500 bytes=728
+2012-02-16T23:12:23+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:12:23 +0000] "GET /oauth/user.json?oauth_token=eb21e8a4c8dbc34a967a7242e658bd5b HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:12:33+00:00 app[web.2]: 
+2012-02-16T23:12:33+00:00 app[web.2]: 
+2012-02-16T23:12:33+00:00 app[web.2]: Started GET "/" for 74.97.33.168 at 2012-02-16 23:12:33 +0000
+2012-02-16T23:12:33+00:00 app[web.2]:   Processing by SessionsController#new as HTML
+2012-02-16T23:12:33+00:00 app[web.2]: Redirected to http://www.studyegg.com
+2012-02-16T23:12:33+00:00 app[web.2]: Completed 302 Found in 13ms
+2012-02-16T23:12:33+00:00 app[web.2]: cache: [GET /] miss
+2012-02-16T23:12:33+00:00 heroku[router]: GET studyegg.com/ dyno=web.2 queue=0 wait=0ms service=35ms status=302 bytes=89
+2012-02-16T23:12:33+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:12:33 +0000] "GET / HTTP/1.1" 302 89 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:12:33+00:00 app[web.1]: 
+2012-02-16T23:12:33+00:00 app[web.1]: 
+2012-02-16T23:12:33+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:12:33 +0000
+2012-02-16T23:12:33+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:12:33+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:33+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=32970a9b825b9fb3052fe5a205570750&response_type=code
+2012-02-16T23:12:33+00:00 app[web.1]: Completed 302 Found in 37ms
+2012-02-16T23:12:33+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:12:33+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=58ms status=302 bytes=173
+2012-02-16T23:12:33+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:12:33 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:12:33+00:00 app[web.1]: 
+2012-02-16T23:12:33+00:00 app[web.1]: 
+2012-02-16T23:12:33+00:00 app[web.1]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:12:33 +0000
+2012-02-16T23:12:33+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:12:33+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"32970a9b825b9fb3052fe5a205570750", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:33+00:00 app[web.1]: Completed 200 OK in 25ms (Views: 5.8ms | ActiveRecord: 11.7ms)
+2012-02-16T23:12:33+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:12:33+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=52ms status=200 bytes=120
+2012-02-16T23:12:33+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:12:33 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:12:33+00:00 app[web.1]: 
+2012-02-16T23:12:33+00:00 app[web.1]: 
+2012-02-16T23:12:33+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=bcb46e0d3204f5c4fa8ca1b4a68962a5" for 50.17.69.62 at 2012-02-16 23:12:33 +0000
+2012-02-16T23:12:33+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:12:33+00:00 app[web.1]:   Parameters: {"oauth_token"=>"bcb46e0d3204f5c4fa8ca1b4a68962a5"}
+2012-02-16T23:12:33+00:00 app[web.1]: Completed 500 Internal Server Error in 48ms
+2012-02-16T23:12:33+00:00 app[web.1]: 
+2012-02-16T23:12:33+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x0000000491f790>):
+2012-02-16T23:12:33+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:12:33+00:00 app[web.1]: 
+2012-02-16T23:12:33+00:00 app[web.1]: 
+2012-02-16T23:12:33+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=bcb46e0d3204f5c4fa8ca1b4a68962a5] miss
+2012-02-16T23:12:33+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=115ms status=500 bytes=728
+2012-02-16T23:12:33+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:12:33 +0000] "GET /oauth/user.json?oauth_token=bcb46e0d3204f5c4fa8ca1b4a68962a5 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:12:33+00:00 app[web.2]: 
+2012-02-16T23:12:33+00:00 app[web.2]: 
+2012-02-16T23:12:33+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:12:33 +0000
+2012-02-16T23:12:33+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:12:33+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:33+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=32d5865db23aea1e568499a88fd42c4b&response_type=code
+2012-02-16T23:12:33+00:00 app[web.2]: Completed 302 Found in 29ms
+2012-02-16T23:12:33+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:12:33+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=42ms status=302 bytes=173
+2012-02-16T23:12:33+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:12:33 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:12:33+00:00 app[web.1]: 
+2012-02-16T23:12:33+00:00 app[web.1]: 
+2012-02-16T23:12:33+00:00 app[web.1]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:12:33 +0000
+2012-02-16T23:12:33+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:12:33+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"32d5865db23aea1e568499a88fd42c4b", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:34+00:00 app[web.1]: Completed 200 OK in 49ms (Views: 0.3ms | ActiveRecord: 45.8ms)
+2012-02-16T23:12:34+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:12:34+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=103ms status=200 bytes=120
+2012-02-16T23:12:34+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:12:34 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=a92589d7083d01cfa54d66316e60a3df" for 184.72.142.63 at 2012-02-16 23:12:34 +0000
+2012-02-16T23:12:34+00:00 app[web.2]:   Parameters: {"oauth_token"=>"a92589d7083d01cfa54d66316e60a3df"}
+2012-02-16T23:12:34+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:12:34+00:00 app[web.2]: Completed 500 Internal Server Error in 11ms
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x00000005925f90>):
+2012-02-16T23:12:34+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=a92589d7083d01cfa54d66316e60a3df] miss
+2012-02-16T23:12:34+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=33ms status=500 bytes=728
+2012-02-16T23:12:34+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:12:34 +0000] "GET /oauth/user.json?oauth_token=a92589d7083d01cfa54d66316e60a3df HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:12:34 +0000
+2012-02-16T23:12:34+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:12:34+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:34+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=4b2d50af85eb1be4d34c3e9cf4895ec3&response_type=code
+2012-02-16T23:12:34+00:00 app[web.2]: Completed 302 Found in 12ms
+2012-02-16T23:12:34+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:12:34+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:12:34 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:12:34+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=21ms status=302 bytes=173
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:12:34 +0000
+2012-02-16T23:12:34+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:12:34+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"4b2d50af85eb1be4d34c3e9cf4895ec3", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:34+00:00 app[web.2]: Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 6.8ms)
+2012-02-16T23:12:34+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:12:34+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=13ms status=200 bytes=120
+2012-02-16T23:12:34+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:12:34 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:12:34+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=16ms status=500 bytes=728
+2012-02-16T23:12:34+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:12:34 +0000] "GET /oauth/user.json?oauth_token=f2d7eb1d4cc37ba187ddf576dc61545e HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:12:34+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=f2d7eb1d4cc37ba187ddf576dc61545e" for 50.17.69.62 at 2012-02-16 23:12:34 +0000
+2012-02-16T23:12:34+00:00 app[web.2]:   Parameters: {"oauth_token"=>"f2d7eb1d4cc37ba187ddf576dc61545e"}
+2012-02-16T23:12:34+00:00 app[web.2]: Completed 500 Internal Server Error in 8ms
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:12:34+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x000000055ae150>):
+2012-02-16T23:12:34+00:00 app[web.2]: 
+2012-02-16T23:12:34+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=f2d7eb1d4cc37ba187ddf576dc61545e] miss
+2012-02-16T23:12:34+00:00 app[web.1]: 
+2012-02-16T23:12:34+00:00 app[web.1]: 
+2012-02-16T23:12:34+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:12:34 +0000
+2012-02-16T23:12:34+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:12:34+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:34+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=836c17132027a938b8724823a8b0b680&response_type=code
+2012-02-16T23:12:34+00:00 app[web.1]: Completed 302 Found in 64ms
+2012-02-16T23:12:34+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:12:34+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=75ms status=302 bytes=173
+2012-02-16T23:12:34+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:12:34 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:12:34+00:00 app[web.1]: 
+2012-02-16T23:12:34+00:00 app[web.1]: 
+2012-02-16T23:12:34+00:00 app[web.1]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:12:34 +0000
+2012-02-16T23:12:34+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:12:34+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"836c17132027a938b8724823a8b0b680", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:12:35+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:12:35+00:00 app[web.1]: Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 13.8ms)
+2012-02-16T23:12:35+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=39ms status=200 bytes=120
+2012-02-16T23:12:35+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:12:35 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:12:35+00:00 app[web.1]: 
+2012-02-16T23:12:35+00:00 app[web.1]: 
+2012-02-16T23:12:35+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=eb2350f75292635e3fb9d60f6fcb21ad" for 50.17.69.62 at 2012-02-16 23:12:35 +0000
+2012-02-16T23:12:35+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:12:35+00:00 app[web.1]:   Parameters: {"oauth_token"=>"eb2350f75292635e3fb9d60f6fcb21ad"}
+2012-02-16T23:12:35+00:00 app[web.1]: Completed 500 Internal Server Error in 20ms
+2012-02-16T23:12:35+00:00 app[web.1]: 
+2012-02-16T23:12:35+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x000000037b5338>):
+2012-02-16T23:12:35+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:12:35+00:00 app[web.1]: 
+2012-02-16T23:12:35+00:00 app[web.1]: 
+2012-02-16T23:12:35+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=eb2350f75292635e3fb9d60f6fcb21ad] miss
+2012-02-16T23:12:35+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=28ms status=500 bytes=728
+2012-02-16T23:12:35+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:12:35 +0000] "GET /oauth/user.json?oauth_token=eb2350f75292635e3fb9d60f6fcb21ad HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:13:52+00:00 heroku[slugc]: Slug compilation started
+2012-02-16T23:14:28+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 166.186.168.42 at 2012-02-16 23:14:28 +0000
+2012-02-16T23:14:28+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:14:28+00:00 app[web.1]: 
+2012-02-16T23:14:28+00:00 app[web.1]: 
+2012-02-16T23:14:28+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:28+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=1e5799379abc2029cbcda38e4ec5591f&response_type=code
+2012-02-16T23:14:28+00:00 app[web.1]: Completed 302 Found in 75ms
+2012-02-16T23:14:28+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:14:28+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=84ms status=302 bytes=173
+2012-02-16T23:14:28+00:00 heroku[nginx]: 166.186.168.42 - - [16/Feb/2012:23:14:28 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11" studyegg.com
+2012-02-16T23:14:28+00:00 app[web.2]: 
+2012-02-16T23:14:28+00:00 app[web.2]: 
+2012-02-16T23:14:28+00:00 app[web.2]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:14:28 +0000
+2012-02-16T23:14:28+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:14:28+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"1e5799379abc2029cbcda38e4ec5591f", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:28+00:00 app[web.2]: Completed 200 OK in 38ms (Views: 0.2ms | ActiveRecord: 35.3ms)
+2012-02-16T23:14:28+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:14:28+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=45ms status=200 bytes=120
+2012-02-16T23:14:28+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:14:28 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:14:28+00:00 app[web.1]: 
+2012-02-16T23:14:28+00:00 app[web.1]: 
+2012-02-16T23:14:28+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=55322939b0a4c625537411b186c3f3fd" for 50.17.69.62 at 2012-02-16 23:14:28 +0000
+2012-02-16T23:14:28+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:14:28+00:00 app[web.1]:   Parameters: {"oauth_token"=>"55322939b0a4c625537411b186c3f3fd"}
+2012-02-16T23:14:28+00:00 app[web.1]: Completed 500 Internal Server Error in 24ms
+2012-02-16T23:14:28+00:00 app[web.1]: 
+2012-02-16T23:14:28+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x000000030ed730>):
+2012-02-16T23:14:28+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:14:28+00:00 app[web.1]: 
+2012-02-16T23:14:28+00:00 app[web.1]: 
+2012-02-16T23:14:28+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=55322939b0a4c625537411b186c3f3fd] miss
+2012-02-16T23:14:28+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=36ms status=500 bytes=728
+2012-02-16T23:14:28+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:14:28 +0000] "GET /oauth/user.json?oauth_token=55322939b0a4c625537411b186c3f3fd HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:14:31+00:00 heroku[api]: Release v26 created by bill.derusha@gmail.com
+2012-02-16T23:14:31+00:00 heroku[api]: Deploy a1a3b04 by bill.derusha@gmail.com
+2012-02-16T23:14:31+00:00 heroku[web.1]: State changed from up to bouncing
+2012-02-16T23:14:31+00:00 heroku[web.1]: State changed from bouncing to created
+2012-02-16T23:14:31+00:00 heroku[web.1]: State changed from created to starting
+2012-02-16T23:14:31+00:00 heroku[web.2]: State changed from up to bouncing
+2012-02-16T23:14:31+00:00 heroku[web.2]: State changed from bouncing to created
+2012-02-16T23:14:31+00:00 heroku[web.2]: State changed from created to starting
+2012-02-16T23:14:32+00:00 heroku[slugc]: Slug compilation finished
+2012-02-16T23:14:33+00:00 heroku[web.1]: Stopping process with SIGTERM
+2012-02-16T23:14:33+00:00 app[web.1]: [2012-02-16 23:14:33] ERROR SignalException: SIGTERM
+2012-02-16T23:14:33+00:00 app[web.1]: 	/usr/local/lib/ruby/1.9.1/webrick/server.rb:90:in `select'
+2012-02-16T23:14:33+00:00 heroku[web.2]: Stopping process with SIGTERM
+2012-02-16T23:14:33+00:00 app[web.2]: [2012-02-16 23:14:33] ERROR SignalException: SIGTERM
+2012-02-16T23:14:33+00:00 app[web.2]: 	/usr/local/lib/ruby/1.9.1/webrick/server.rb:90:in `select'
+2012-02-16T23:14:36+00:00 heroku[web.1]: Stopping process with SIGTERM
+2012-02-16T23:14:36+00:00 app[web.1]: [2012-02-16 23:14:36] ERROR SignalException: SIGTERM
+2012-02-16T23:14:36+00:00 app[web.1]: 	/usr/local/lib/ruby/1.9.1/webrick/server.rb:90:in `select'
+2012-02-16T23:14:38+00:00 heroku[web.1]: Starting process with command `bundle exec rails server -p 4852`
+2012-02-16T23:14:39+00:00 heroku[web.2]: Starting process with command `bundle exec rails server -p 50021`
+2012-02-16T23:14:43+00:00 heroku[web.2]: Error R12 (Exit timeout) -> Process failed to exit within 10 seconds of SIGTERM
+2012-02-16T23:14:43+00:00 heroku[web.2]: Stopping process with SIGKILL
+2012-02-16T23:14:44+00:00 heroku[web.1]: Error R12 (Exit timeout) -> Process failed to exit within 10 seconds of SIGTERM
+2012-02-16T23:14:44+00:00 heroku[web.1]: Stopping process with SIGKILL
+2012-02-16T23:14:45+00:00 heroku[web.2]: Process exited with status 137
+2012-02-16T23:14:45+00:00 heroku[web.1]: Process exited with status 137
+2012-02-16T23:14:46+00:00 app[web.1]: [2012-02-16 23:14:46] INFO  WEBrick 1.3.1
+2012-02-16T23:14:46+00:00 app[web.1]: [2012-02-16 23:14:46] INFO  ruby 1.9.2 (2011-07-09) [x86_64-linux]
+2012-02-16T23:14:46+00:00 app[web.1]: [2012-02-16 23:14:46] INFO  WEBrick::HTTPServer#start: pid=1 port=4852
+2012-02-16T23:14:46+00:00 heroku[web.1]: State changed from starting to up
+2012-02-16T23:14:48+00:00 app[web.1]: => Call with -d to detach
+2012-02-16T23:14:48+00:00 app[web.1]: => Booting WEBrick
+2012-02-16T23:14:48+00:00 app[web.1]: => Ctrl-C to shutdown server
+2012-02-16T23:14:48+00:00 app[web.1]: => Rails 3.1.3 application starting in production on http://0.0.0.0:4852
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:14:48 +0000
+2012-02-16T23:14:48+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:48+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:14:48+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=360ms status=302 bytes=173
+2012-02-16T23:14:48+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:14:48 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:14:48+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=dcddac6bd00375ddfa6bb3b1fe158845&response_type=code
+2012-02-16T23:14:48+00:00 app[web.1]: Completed 302 Found in 260ms
+2012-02-16T23:14:48+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:14:48 +0000
+2012-02-16T23:14:48+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:14:48+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"dcddac6bd00375ddfa6bb3b1fe158845", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:48+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:14:48+00:00 app[web.1]: Completed 200 OK in 12ms (Views: 2.9ms | ActiveRecord: 6.5ms)
+2012-02-16T23:14:48+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=27ms status=200 bytes=120
+2012-02-16T23:14:48+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:14:48 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=7fe1dd171b7210132aa7f9e0e161f863" for 50.17.69.62 at 2012-02-16 23:14:48 +0000
+2012-02-16T23:14:48+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:14:48+00:00 app[web.1]:   Parameters: {"oauth_token"=>"7fe1dd171b7210132aa7f9e0e161f863"}
+2012-02-16T23:14:48+00:00 app[web.1]: Completed 500 Internal Server Error in 66ms
+2012-02-16T23:14:48+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=80ms status=500 bytes=728
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000003d81988>):
+2012-02-16T23:14:48+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=7fe1dd171b7210132aa7f9e0e161f863] miss
+2012-02-16T23:14:48+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:14:48 +0000] "GET /oauth/user.json?oauth_token=7fe1dd171b7210132aa7f9e0e161f863 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:14:48 +0000
+2012-02-16T23:14:48+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:14:48+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:48+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=60a5dd87974252c4d2a6a8d5dd66e36a&response_type=code
+2012-02-16T23:14:48+00:00 app[web.1]: Completed 302 Found in 14ms
+2012-02-16T23:14:48+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:14:48+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:14:48 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:14:48+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=22ms status=302 bytes=173
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:14:48 +0000
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:14:48+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"60a5dd87974252c4d2a6a8d5dd66e36a", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:48+00:00 app[web.1]: Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 6.2ms)
+2012-02-16T23:14:48+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:14:48+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=15ms status=200 bytes=120
+2012-02-16T23:14:48+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=1107f22f23f486a6bb2e96bfd27e554b" for 184.72.142.63 at 2012-02-16 23:14:48 +0000
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]:   Parameters: {"oauth_token"=>"1107f22f23f486a6bb2e96bfd27e554b"}
+2012-02-16T23:14:48+00:00 app[web.1]: Completed 500 Internal Server Error in 8ms
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=14ms status=500 bytes=728
+2012-02-16T23:14:48+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x000000030bd350>):
+2012-02-16T23:14:48+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: 
+2012-02-16T23:14:48+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=1107f22f23f486a6bb2e96bfd27e554b] miss
+2012-02-16T23:14:48+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:14:48 +0000] "GET /oauth/user.json?oauth_token=1107f22f23f486a6bb2e96bfd27e554b HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:14:49+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:14:48 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:14:49+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:49+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:14:49 +0000
+2012-02-16T23:14:49+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=c6340ec779d1cdde2e921a4ff6ed4086&response_type=code
+2012-02-16T23:14:49+00:00 app[web.1]: Completed 302 Found in 11ms
+2012-02-16T23:14:49+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:14:49+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=16ms status=302 bytes=173
+2012-02-16T23:14:49+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:14:49 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:14:49+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=14ms status=200 bytes=120
+2012-02-16T23:14:49+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:14:49 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:14:49+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=17ms status=500 bytes=728
+2012-02-16T23:14:49+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:14:49 +0000] "GET /oauth/user.json?oauth_token=0586b9d26caa31b1bd92ce2acc796289 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:14:49 +0000
+2012-02-16T23:14:49+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"c6340ec779d1cdde2e921a4ff6ed4086", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:49+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:14:49+00:00 app[web.1]: Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 6.3ms)
+2012-02-16T23:14:49+00:00 app[web.1]:   Parameters: {"oauth_token"=>"0586b9d26caa31b1bd92ce2acc796289"}
+2012-02-16T23:14:49+00:00 app[web.1]: Completed 500 Internal Server Error in 10ms
+2012-02-16T23:14:49+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=0586b9d26caa31b1bd92ce2acc796289" for 50.17.69.62 at 2012-02-16 23:14:49 +0000
+2012-02-16T23:14:49+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000002471f88>):
+2012-02-16T23:14:49+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=0586b9d26caa31b1bd92ce2acc796289] miss
+2012-02-16T23:14:49+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 166.186.168.42 at 2012-02-16 23:14:49 +0000
+2012-02-16T23:14:49+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:14:49+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:49+00:00 heroku[nginx]: 166.186.168.42 - - [16/Feb/2012:23:14:49 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11" studyegg.com
+2012-02-16T23:14:49+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=3977cef315a7aff44475efeaca166e70&response_type=code
+2012-02-16T23:14:49+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:14:49+00:00 app[web.1]: Completed 302 Found in 12ms
+2012-02-16T23:14:49+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=20ms status=302 bytes=173
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:14:49 +0000
+2012-02-16T23:14:49+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:14:49+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:49+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=a49fcf4a496545b2dd0d6d927c4cdfcf&response_type=code
+2012-02-16T23:14:49+00:00 app[web.1]: Completed 302 Found in 11ms
+2012-02-16T23:14:49+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:14:49+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=16ms status=302 bytes=173
+2012-02-16T23:14:49+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:14:49 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:14:49 +0000
+2012-02-16T23:14:49+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:14:49+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"a49fcf4a496545b2dd0d6d927c4cdfcf", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:49+00:00 app[web.1]: Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 6.3ms)
+2012-02-16T23:14:49+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:14:49+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=14ms status=200 bytes=120
+2012-02-16T23:14:49+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:14:49 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:14:49+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=52ms status=500 bytes=728
+2012-02-16T23:14:49+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:14:49 +0000] "GET /oauth/user.json?oauth_token=ea1fc5ec93de21232b7d8754cad3fece HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=ea1fc5ec93de21232b7d8754cad3fece" for 184.72.142.63 at 2012-02-16 23:14:49 +0000
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:14:49+00:00 app[web.1]:   Parameters: {"oauth_token"=>"ea1fc5ec93de21232b7d8754cad3fece"}
+2012-02-16T23:14:49+00:00 app[web.1]: Completed 500 Internal Server Error in 13ms
+2012-02-16T23:14:49+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:14:49+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x000000057f42c0>):
+2012-02-16T23:14:49+00:00 app[web.1]: 
+2012-02-16T23:14:49+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=ea1fc5ec93de21232b7d8754cad3fece] miss
+2012-02-16T23:14:50+00:00 app[web.1]: 
+2012-02-16T23:14:50+00:00 app[web.1]: 
+2012-02-16T23:14:50+00:00 app[web.1]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:14:50 +0000
+2012-02-16T23:14:50+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"3977cef315a7aff44475efeaca166e70", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:50+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:14:50+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:14:50 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:14:50+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=13ms status=500 bytes=728
+2012-02-16T23:14:50+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:14:50 +0000] "GET /oauth/user.json?oauth_token=0f2e2fee4c3e576748b5910d3982606b HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:14:50+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:14:50+00:00 app[web.1]: Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 7.1ms)
+2012-02-16T23:14:50+00:00 app[web.1]: 
+2012-02-16T23:14:50+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=0f2e2fee4c3e576748b5910d3982606b" for 184.72.142.63 at 2012-02-16 23:14:50 +0000
+2012-02-16T23:14:50+00:00 app[web.1]: 
+2012-02-16T23:14:50+00:00 app[web.1]: Completed 500 Internal Server Error in 8ms
+2012-02-16T23:14:50+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:14:50+00:00 app[web.1]:   Parameters: {"oauth_token"=>"0f2e2fee4c3e576748b5910d3982606b"}
+2012-02-16T23:14:50+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000005a37be0>):
+2012-02-16T23:14:50+00:00 app[web.1]: 
+2012-02-16T23:14:50+00:00 app[web.1]: 
+2012-02-16T23:14:50+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:14:50+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=0f2e2fee4c3e576748b5910d3982606b] miss
+2012-02-16T23:14:50+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=14ms status=200 bytes=120
+2012-02-16T23:14:50+00:00 app[web.1]: 
+2012-02-16T23:14:51+00:00 app[web.2]: [2012-02-16 23:14:51] INFO  WEBrick 1.3.1
+2012-02-16T23:14:51+00:00 app[web.2]: [2012-02-16 23:14:51] INFO  ruby 1.9.2 (2011-07-09) [x86_64-linux]
+2012-02-16T23:14:51+00:00 app[web.2]: [2012-02-16 23:14:51] INFO  WEBrick::HTTPServer#start: pid=1 port=50021
+2012-02-16T23:14:52+00:00 heroku[web.2]: State changed from starting to up
+2012-02-16T23:14:53+00:00 app[web.1]: 
+2012-02-16T23:14:53+00:00 app[web.1]: 
+2012-02-16T23:14:53+00:00 app[web.1]: Started GET "/" for 166.186.168.42 at 2012-02-16 23:14:53 +0000
+2012-02-16T23:14:53+00:00 app[web.1]:   Processing by SessionsController#new as HTML
+2012-02-16T23:14:53+00:00 app[web.1]: Redirected to http://www.studyegg.com
+2012-02-16T23:14:53+00:00 app[web.1]: Completed 302 Found in 3ms
+2012-02-16T23:14:53+00:00 app[web.1]: cache: [GET /] miss
+2012-02-16T23:14:53+00:00 heroku[router]: GET studyegg.com/ dyno=web.1 queue=0 wait=0ms service=15ms status=302 bytes=89
+2012-02-16T23:14:53+00:00 heroku[nginx]: 166.186.168.42 - - [16/Feb/2012:23:14:53 +0000] "GET / HTTP/1.1" 302 89 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11" studyegg.com
+2012-02-16T23:14:54+00:00 app[web.2]: => Booting WEBrick
+2012-02-16T23:14:54+00:00 app[web.2]: => Rails 3.1.3 application starting in production on http://0.0.0.0:50021
+2012-02-16T23:14:54+00:00 app[web.2]: => Call with -d to detach
+2012-02-16T23:14:54+00:00 app[web.2]: => Ctrl-C to shutdown server
+2012-02-16T23:14:54+00:00 app[web.2]: 
+2012-02-16T23:14:54+00:00 app[web.2]: 
+2012-02-16T23:14:54+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 166.186.168.42 at 2012-02-16 23:14:54 +0000
+2012-02-16T23:14:54+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:54+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:14:54+00:00 heroku[nginx]: 166.186.168.42 - - [16/Feb/2012:23:14:54 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11" studyegg.com
+2012-02-16T23:14:54+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=ef5abc672e5364abfe0e3e1dfe47d36d&response_type=code
+2012-02-16T23:14:54+00:00 app[web.2]: Completed 302 Found in 289ms
+2012-02-16T23:14:54+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:14:54+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=404ms status=302 bytes=173
+2012-02-16T23:14:55+00:00 app[web.2]: 
+2012-02-16T23:14:55+00:00 app[web.2]: 
+2012-02-16T23:14:55+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 166.186.168.42 at 2012-02-16 23:14:55 +0000
+2012-02-16T23:14:55+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:14:55+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:55+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=f8970c4f42aaffd8fde3d25245774e88&response_type=code
+2012-02-16T23:14:55+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:14:55+00:00 app[web.2]: Completed 302 Found in 10ms
+2012-02-16T23:14:55+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=20ms status=302 bytes=173
+2012-02-16T23:14:55+00:00 heroku[nginx]: 166.186.168.42 - - [16/Feb/2012:23:14:55 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11" studyegg.com
+2012-02-16T23:14:55+00:00 app[web.2]: 
+2012-02-16T23:14:55+00:00 app[web.2]: 
+2012-02-16T23:14:55+00:00 app[web.2]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:14:55 +0000
+2012-02-16T23:14:55+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:14:55+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"f8970c4f42aaffd8fde3d25245774e88", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:55+00:00 app[web.2]: Completed 200 OK in 12ms (Views: 3.1ms | ActiveRecord: 5.9ms)
+2012-02-16T23:14:55+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:14:55+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=28ms status=200 bytes=120
+2012-02-16T23:14:55+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:14:55 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:14:55+00:00 app[web.1]: 
+2012-02-16T23:14:55+00:00 app[web.1]: 
+2012-02-16T23:14:55+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=c03b3b20b891dc4dffa491bdf3a9e341" for 50.17.69.62 at 2012-02-16 23:14:55 +0000
+2012-02-16T23:14:55+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:14:55+00:00 app[web.1]:   Parameters: {"oauth_token"=>"c03b3b20b891dc4dffa491bdf3a9e341"}
+2012-02-16T23:14:55+00:00 app[web.1]: Completed 500 Internal Server Error in 61ms
+2012-02-16T23:14:55+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000003c58840>):
+2012-02-16T23:14:55+00:00 app[web.1]: 
+2012-02-16T23:14:55+00:00 app[web.1]: 
+2012-02-16T23:14:55+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:14:55+00:00 app[web.1]: 
+2012-02-16T23:14:55+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=69ms status=500 bytes=728
+2012-02-16T23:14:55+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=c03b3b20b891dc4dffa491bdf3a9e341] miss
+2012-02-16T23:14:56+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:14:56 +0000] "GET /oauth/user.json?oauth_token=c03b3b20b891dc4dffa491bdf3a9e341 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:14:57+00:00 app[web.1]: 
+2012-02-16T23:14:57+00:00 app[web.1]: 
+2012-02-16T23:14:57+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:14:57+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 166.186.168.42 at 2012-02-16 23:14:57 +0000
+2012-02-16T23:14:57+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:57+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=17ms status=302 bytes=173
+2012-02-16T23:14:57+00:00 heroku[nginx]: 166.186.168.42 - - [16/Feb/2012:23:14:57 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11" studyegg.com
+2012-02-16T23:14:57+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=6039fc34cc16b5e18cd0014835c3916b&response_type=code
+2012-02-16T23:14:57+00:00 app[web.1]: Completed 302 Found in 11ms
+2012-02-16T23:14:57+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:14:57+00:00 app[web.1]: 
+2012-02-16T23:14:57+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:14:57+00:00 app[web.1]: 
+2012-02-16T23:14:57+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"6039fc34cc16b5e18cd0014835c3916b", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:57+00:00 app[web.1]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:14:57 +0000
+2012-02-16T23:14:57+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=12ms status=200 bytes=120
+2012-02-16T23:14:57+00:00 app[web.1]: Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 5.9ms)
+2012-02-16T23:14:57+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:14:57+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:14:57 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:14:57+00:00 app[web.1]: 
+2012-02-16T23:14:57+00:00 app[web.1]: 
+2012-02-16T23:14:57+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=25c5c99f9a756aaabaadeb69f0a9744b" for 50.17.69.62 at 2012-02-16 23:14:57 +0000
+2012-02-16T23:14:57+00:00 app[web.1]:   Parameters: {"oauth_token"=>"25c5c99f9a756aaabaadeb69f0a9744b"}
+2012-02-16T23:14:57+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:14:57+00:00 app[web.1]: 
+2012-02-16T23:14:57+00:00 app[web.1]: Completed 500 Internal Server Error in 8ms
+2012-02-16T23:14:57+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x000000032ff438>):
+2012-02-16T23:14:57+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:14:57+00:00 app[web.1]: 
+2012-02-16T23:14:57+00:00 app[web.1]: 
+2012-02-16T23:14:57+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=25c5c99f9a756aaabaadeb69f0a9744b] miss
+2012-02-16T23:14:57+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=13ms status=500 bytes=728
+2012-02-16T23:14:57+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:14:57 +0000] "GET /oauth/user.json?oauth_token=25c5c99f9a756aaabaadeb69f0a9744b HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:14:58+00:00 app[web.2]: 
+2012-02-16T23:14:58+00:00 app[web.2]: 
+2012-02-16T23:14:58+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 166.186.168.42 at 2012-02-16 23:14:58 +0000
+2012-02-16T23:14:58+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:14:58+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:59+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=03d95882c580d6b7fc14b2631a011b70&response_type=code
+2012-02-16T23:14:59+00:00 app[web.2]: Completed 302 Found in 10ms
+2012-02-16T23:14:59+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:14:59+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=17ms status=302 bytes=173
+2012-02-16T23:14:59+00:00 heroku[nginx]: 166.186.168.42 - - [16/Feb/2012:23:14:59 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11" studyegg.com
+2012-02-16T23:14:59+00:00 app[web.2]: 
+2012-02-16T23:14:59+00:00 app[web.2]: 
+2012-02-16T23:14:59+00:00 app[web.2]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:14:59 +0000
+2012-02-16T23:14:59+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:14:59+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"03d95882c580d6b7fc14b2631a011b70", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:14:59+00:00 app[web.2]: Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 6.8ms)
+2012-02-16T23:14:59+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:14:59+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=13ms status=200 bytes=120
+2012-02-16T23:14:59+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:14:59 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:01+00:00 app[web.1]: 
+2012-02-16T23:15:01+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=87c5f786d6a0c44904f83870c0ffb1ff" for 50.17.69.62 at 2012-02-16 23:15:01 +0000
+2012-02-16T23:15:01+00:00 app[web.1]: 
+2012-02-16T23:15:01+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:01+00:00 app[web.1]:   Parameters: {"oauth_token"=>"87c5f786d6a0c44904f83870c0ffb1ff"}
+2012-02-16T23:15:01+00:00 app[web.1]: Completed 500 Internal Server Error in 8ms
+2012-02-16T23:15:01+00:00 app[web.1]: 
+2012-02-16T23:15:01+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000002ea0fb8>):
+2012-02-16T23:15:01+00:00 app[web.1]: 
+2012-02-16T23:15:01+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:01+00:00 app[web.1]: 
+2012-02-16T23:15:01+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=87c5f786d6a0c44904f83870c0ffb1ff] miss
+2012-02-16T23:15:01+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=14ms status=500 bytes=728
+2012-02-16T23:15:01+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:01 +0000] "GET /oauth/user.json?oauth_token=87c5f786d6a0c44904f83870c0ffb1ff HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:01+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=19ms status=302 bytes=173
+2012-02-16T23:15:01+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:01 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:01+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:15:01 +0000
+2012-02-16T23:15:01+00:00 app[web.1]: 
+2012-02-16T23:15:01+00:00 app[web.1]: 
+2012-02-16T23:15:01+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:01+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:01+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=64d930e820a530d084f59d410f8b5a17&response_type=code
+2012-02-16T23:15:01+00:00 app[web.1]: Completed 302 Found in 11ms
+2012-02-16T23:15:01+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:01+00:00 app[web.1]: 
+2012-02-16T23:15:01+00:00 app[web.1]: 
+2012-02-16T23:15:01+00:00 app[web.1]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:15:01 +0000
+2012-02-16T23:15:01+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:01+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"64d930e820a530d084f59d410f8b5a17", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:01+00:00 app[web.1]: Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 6.2ms)
+2012-02-16T23:15:01+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:01+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=13ms status=200 bytes=120
+2012-02-16T23:15:01+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:01 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:01+00:00 app[web.2]: 
+2012-02-16T23:15:01+00:00 app[web.2]: 
+2012-02-16T23:15:01+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=62d0d2d744362e505efe529b1d92d7b0" for 50.17.69.62 at 2012-02-16 23:15:01 +0000
+2012-02-16T23:15:01+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:01+00:00 app[web.2]:   Parameters: {"oauth_token"=>"62d0d2d744362e505efe529b1d92d7b0"}
+2012-02-16T23:15:01+00:00 app[web.2]: Completed 500 Internal Server Error in 85ms
+2012-02-16T23:15:01+00:00 app[web.2]: 
+2012-02-16T23:15:01+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x00000004135cc8>):
+2012-02-16T23:15:01+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:01+00:00 app[web.2]: 
+2012-02-16T23:15:01+00:00 app[web.2]: 
+2012-02-16T23:15:01+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=62d0d2d744362e505efe529b1d92d7b0] miss
+2012-02-16T23:15:01+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:01 +0000] "GET /oauth/user.json?oauth_token=62d0d2d744362e505efe529b1d92d7b0 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:01+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=104ms status=500 bytes=728
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:15:02 +0000
+2012-02-16T23:15:02+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:02+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=23ms status=302 bytes=173
+2012-02-16T23:15:02+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=420bb193c219873935ece33ace332325&response_type=code
+2012-02-16T23:15:02+00:00 app[web.1]: Completed 302 Found in 10ms
+2012-02-16T23:15:02+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:02+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:02 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:02+00:00 app[web.2]: 
+2012-02-16T23:15:02+00:00 app[web.2]: 
+2012-02-16T23:15:02+00:00 app[web.2]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:15:02 +0000
+2012-02-16T23:15:02+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:02+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"420bb193c219873935ece33ace332325", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:02+00:00 app[web.2]: Completed 200 OK in 16ms (Views: 1.2ms | ActiveRecord: 10.2ms)
+2012-02-16T23:15:02+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:02+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=32ms status=200 bytes=120
+2012-02-16T23:15:02+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:02 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:02+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=23ms status=500 bytes=728
+2012-02-16T23:15:02+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:02 +0000] "GET /oauth/user.json?oauth_token=63f2eb07f3e5fdda419c65bf74b67671 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=63f2eb07f3e5fdda419c65bf74b67671" for 184.72.142.63 at 2012-02-16 23:15:02 +0000
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=63f2eb07f3e5fdda419c65bf74b67671] miss
+2012-02-16T23:15:02+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:02+00:00 app[web.1]:   Parameters: {"oauth_token"=>"63f2eb07f3e5fdda419c65bf74b67671"}
+2012-02-16T23:15:02+00:00 app[web.1]: Completed 500 Internal Server Error in 16ms
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000005a865b0>):
+2012-02-16T23:15:02+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:02+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:15:02 +0000
+2012-02-16T23:15:02+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:02+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=16ms status=302 bytes=173
+2012-02-16T23:15:02+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=dfd8e71f0cf7b0ccd2bc1efa0a4b4c4d&response_type=code
+2012-02-16T23:15:02+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:02+00:00 app[web.1]: Completed 302 Found in 10ms
+2012-02-16T23:15:02+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:02 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:02+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"dfd8e71f0cf7b0ccd2bc1efa0a4b4c4d", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:15:02 +0000
+2012-02-16T23:15:02+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:02+00:00 app[web.1]: Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 5.9ms)
+2012-02-16T23:15:02+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:02+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=15ms status=200 bytes=120
+2012-02-16T23:15:02+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:02 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:02+00:00 app[web.2]: 
+2012-02-16T23:15:02+00:00 app[web.2]: 
+2012-02-16T23:15:02+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=f22ee60d34e4b16df846937037b76b22" for 184.72.142.63 at 2012-02-16 23:15:02 +0000
+2012-02-16T23:15:02+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:02+00:00 app[web.2]:   Parameters: {"oauth_token"=>"f22ee60d34e4b16df846937037b76b22"}
+2012-02-16T23:15:02+00:00 app[web.2]: Completed 500 Internal Server Error in 20ms
+2012-02-16T23:15:02+00:00 app[web.2]: 
+2012-02-16T23:15:02+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x00000003895230>):
+2012-02-16T23:15:02+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:02+00:00 app[web.2]: 
+2012-02-16T23:15:02+00:00 app[web.2]: 
+2012-02-16T23:15:02+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=f22ee60d34e4b16df846937037b76b22] miss
+2012-02-16T23:15:02+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=30ms status=500 bytes=728
+2012-02-16T23:15:02+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:02 +0000] "GET /oauth/user.json?oauth_token=f22ee60d34e4b16df846937037b76b22 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]: 
+2012-02-16T23:15:02+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:15:02 +0000
+2012-02-16T23:15:02+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:02+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:02+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=5c93a892b68830d59f1c7709d611f1a1&response_type=code
+2012-02-16T23:15:02+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:02+00:00 app[web.1]: Completed 302 Found in 12ms
+2012-02-16T23:15:02+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:02 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:02+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=18ms status=302 bytes=173
+2012-02-16T23:15:03+00:00 app[web.2]: 
+2012-02-16T23:15:03+00:00 app[web.2]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:15:03 +0000
+2012-02-16T23:15:03+00:00 app[web.2]: 
+2012-02-16T23:15:03+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:03+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"5c93a892b68830d59f1c7709d611f1a1", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:03+00:00 app[web.2]: Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 6.4ms)
+2012-02-16T23:15:03+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:03+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:03 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:03+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=16ms status=500 bytes=728
+2012-02-16T23:15:03+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:03 +0000] "GET /oauth/user.json?oauth_token=038dd480c711005f280bcbeb81802c9a HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:03+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=13ms status=200 bytes=120
+2012-02-16T23:15:03+00:00 app[web.1]: 
+2012-02-16T23:15:03+00:00 app[web.1]:   Parameters: {"oauth_token"=>"038dd480c711005f280bcbeb81802c9a"}
+2012-02-16T23:15:03+00:00 app[web.1]: 
+2012-02-16T23:15:03+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=038dd480c711005f280bcbeb81802c9a" for 50.17.69.62 at 2012-02-16 23:15:03 +0000
+2012-02-16T23:15:03+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:03+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=038dd480c711005f280bcbeb81802c9a] miss
+2012-02-16T23:15:03+00:00 app[web.1]: Completed 500 Internal Server Error in 8ms
+2012-02-16T23:15:03+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x000000054a7ab8>):
+2012-02-16T23:15:03+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:03+00:00 app[web.1]: 
+2012-02-16T23:15:03+00:00 app[web.1]: 
+2012-02-16T23:15:03+00:00 app[web.1]: 
+2012-02-16T23:15:03+00:00 app[web.2]: 
+2012-02-16T23:15:03+00:00 app[web.2]: 
+2012-02-16T23:15:03+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 166.186.168.42 at 2012-02-16 23:15:03 +0000
+2012-02-16T23:15:03+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:03+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:03+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=f29ae78a745bb8418c6835bce7ab71f2&response_type=code
+2012-02-16T23:15:03+00:00 app[web.2]: Completed 302 Found in 18ms
+2012-02-16T23:15:03+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:03+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=25ms status=302 bytes=173
+2012-02-16T23:15:04+00:00 heroku[nginx]: 166.186.168.42 - - [16/Feb/2012:23:15:04 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11" studyegg.com
+2012-02-16T23:15:04+00:00 app[web.2]: 
+2012-02-16T23:15:04+00:00 app[web.2]: 
+2012-02-16T23:15:04+00:00 app[web.2]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:15:04 +0000
+2012-02-16T23:15:04+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:04+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"f29ae78a745bb8418c6835bce7ab71f2", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:04+00:00 app[web.2]: Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 6.0ms)
+2012-02-16T23:15:04+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:04+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=15ms status=200 bytes=120
+2012-02-16T23:15:04+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:04 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:04+00:00 app[web.2]: 
+2012-02-16T23:15:04+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=bb11e8a01377c95ea4d7da512d0357ff" for 184.72.142.63 at 2012-02-16 23:15:04 +0000
+2012-02-16T23:15:04+00:00 app[web.2]: 
+2012-02-16T23:15:04+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:04+00:00 app[web.2]:   Parameters: {"oauth_token"=>"bb11e8a01377c95ea4d7da512d0357ff"}
+2012-02-16T23:15:04+00:00 app[web.2]: Completed 500 Internal Server Error in 19ms
+2012-02-16T23:15:04+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x00000002902458>):
+2012-02-16T23:15:04+00:00 app[web.2]: 
+2012-02-16T23:15:04+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=bb11e8a01377c95ea4d7da512d0357ff] miss
+2012-02-16T23:15:04+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:04+00:00 app[web.2]: 
+2012-02-16T23:15:04+00:00 app[web.2]: 
+2012-02-16T23:15:04+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=24ms status=500 bytes=728
+2012-02-16T23:15:04+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:04 +0000] "GET /oauth/user.json?oauth_token=bb11e8a01377c95ea4d7da512d0357ff HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:07+00:00 app[web.2]: 
+2012-02-16T23:15:07+00:00 app[web.2]: 
+2012-02-16T23:15:07+00:00 app[web.2]: Started GET "/" for 74.97.33.168 at 2012-02-16 23:15:07 +0000
+2012-02-16T23:15:07+00:00 app[web.2]:   Processing by SessionsController#new as HTML
+2012-02-16T23:15:07+00:00 app[web.2]: Redirected to http://www.studyegg.com
+2012-02-16T23:15:07+00:00 app[web.2]: Completed 302 Found in 3ms
+2012-02-16T23:15:07+00:00 app[web.2]: cache: [GET /] miss
+2012-02-16T23:15:07+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:07 +0000] "GET / HTTP/1.1" 302 89 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:07+00:00 heroku[router]: GET studyegg.com/ dyno=web.2 queue=0 wait=0ms service=51ms status=302 bytes=89
+2012-02-16T23:15:07+00:00 app[web.1]: 
+2012-02-16T23:15:07+00:00 app[web.1]: 
+2012-02-16T23:15:07+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:15:07 +0000
+2012-02-16T23:15:07+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:07+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:07+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=ff04522f1b8c925be64128330d3de3e0&response_type=code
+2012-02-16T23:15:07+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:07+00:00 app[web.1]: Completed 302 Found in 11ms
+2012-02-16T23:15:07+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=19ms status=302 bytes=173
+2012-02-16T23:15:07+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:07 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:07+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=15ms status=200 bytes=120
+2012-02-16T23:15:07+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:07 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:07+00:00 app[web.2]: 
+2012-02-16T23:15:07+00:00 app[web.2]: 
+2012-02-16T23:15:07+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=2a46604734ebfb2af745bec094742fd8" for 184.72.142.63 at 2012-02-16 23:15:07 +0000
+2012-02-16T23:15:07+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:07+00:00 app[web.2]:   Parameters: {"oauth_token"=>"2a46604734ebfb2af745bec094742fd8"}
+2012-02-16T23:15:07+00:00 app[web.2]: Completed 500 Internal Server Error in 8ms
+2012-02-16T23:15:07+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x000000044ab588>):
+2012-02-16T23:15:07+00:00 app[web.2]: 
+2012-02-16T23:15:07+00:00 app[web.2]: 
+2012-02-16T23:15:07+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:07+00:00 app[web.2]: 
+2012-02-16T23:15:07+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=2a46604734ebfb2af745bec094742fd8] miss
+2012-02-16T23:15:07+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=18ms status=500 bytes=728
+2012-02-16T23:15:07+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:07 +0000] "GET /oauth/user.json?oauth_token=2a46604734ebfb2af745bec094742fd8 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:07+00:00 app[web.1]: 
+2012-02-16T23:15:07+00:00 app[web.1]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:15:07 +0000
+2012-02-16T23:15:07+00:00 app[web.1]: 
+2012-02-16T23:15:07+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"ff04522f1b8c925be64128330d3de3e0", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:07+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:07+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:07+00:00 app[web.1]: Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 6.6ms)
+2012-02-16T23:15:08+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=23ms status=302 bytes=173
+2012-02-16T23:15:08+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:08 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:08+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:15:08 +0000
+2012-02-16T23:15:08+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:08+00:00 app[web.1]: 
+2012-02-16T23:15:08+00:00 app[web.1]: 
+2012-02-16T23:15:08+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:08+00:00 app[web.1]: Completed 302 Found in 14ms
+2012-02-16T23:15:08+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:08+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=ed4faa331c9319d28366f7df0ef25c1d&response_type=code
+2012-02-16T23:15:08+00:00 app[web.1]: 
+2012-02-16T23:15:08+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:08+00:00 app[web.1]: 
+2012-02-16T23:15:08+00:00 app[web.1]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:15:08 +0000
+2012-02-16T23:15:08+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"ed4faa331c9319d28366f7df0ef25c1d", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:08+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=37ms status=200 bytes=120
+2012-02-16T23:15:08+00:00 app[web.1]: Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 29.9ms)
+2012-02-16T23:15:08+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:08+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:08 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:08+00:00 app[web.2]: 
+2012-02-16T23:15:08+00:00 app[web.2]: 
+2012-02-16T23:15:08+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=d8274ee76a6dec1e67b6673c1591095e" for 50.17.69.62 at 2012-02-16 23:15:08 +0000
+2012-02-16T23:15:08+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:08+00:00 app[web.2]:   Parameters: {"oauth_token"=>"d8274ee76a6dec1e67b6673c1591095e"}
+2012-02-16T23:15:08+00:00 app[web.2]: Completed 500 Internal Server Error in 11ms
+2012-02-16T23:15:08+00:00 app[web.2]: 
+2012-02-16T23:15:08+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x00000003e6de50>):
+2012-02-16T23:15:08+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:08+00:00 app[web.2]: 
+2012-02-16T23:15:08+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=d8274ee76a6dec1e67b6673c1591095e] miss
+2012-02-16T23:15:08+00:00 app[web.2]: 
+2012-02-16T23:15:08+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=22ms status=500 bytes=728
+2012-02-16T23:15:08+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:08 +0000] "GET /oauth/user.json?oauth_token=d8274ee76a6dec1e67b6673c1591095e HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:08+00:00 app[web.1]: 
+2012-02-16T23:15:08+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:15:08 +0000
+2012-02-16T23:15:08+00:00 app[web.1]: 
+2012-02-16T23:15:08+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:08+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:08+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=22ms status=302 bytes=173
+2012-02-16T23:15:08+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:08 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:08+00:00 app[web.2]: 
+2012-02-16T23:15:08+00:00 app[web.2]: 
+2012-02-16T23:15:08+00:00 app[web.2]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:15:08 +0000
+2012-02-16T23:15:08+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:08+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"2d87c1535289c9ba0411273c3ac46eb7", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:08+00:00 app[web.2]: Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 7.2ms)
+2012-02-16T23:15:08+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:08+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:08 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:08+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=51ms status=200 bytes=120
+2012-02-16T23:15:08+00:00 app[web.1]: Completed 302 Found in 12ms
+2012-02-16T23:15:08+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:08+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=2d87c1535289c9ba0411273c3ac46eb7&response_type=code
+2012-02-16T23:15:09+00:00 app[web.2]: 
+2012-02-16T23:15:09+00:00 app[web.2]: 
+2012-02-16T23:15:09+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=85e9db983a4be24bd35e6c7529443e27" for 50.17.69.62 at 2012-02-16 23:15:09 +0000
+2012-02-16T23:15:09+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:09+00:00 app[web.2]:   Parameters: {"oauth_token"=>"85e9db983a4be24bd35e6c7529443e27"}
+2012-02-16T23:15:09+00:00 app[web.2]: Completed 500 Internal Server Error in 9ms
+2012-02-16T23:15:09+00:00 app[web.2]: 
+2012-02-16T23:15:09+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x0000000373c3e8>):
+2012-02-16T23:15:09+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:09+00:00 app[web.2]: 
+2012-02-16T23:15:09+00:00 app[web.2]: 
+2012-02-16T23:15:09+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=85e9db983a4be24bd35e6c7529443e27] miss
+2012-02-16T23:15:09+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=31ms status=500 bytes=728
+2012-02-16T23:15:09+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:09 +0000] "GET /oauth/user.json?oauth_token=85e9db983a4be24bd35e6c7529443e27 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:09+00:00 app[web.1]: 
+2012-02-16T23:15:09+00:00 app[web.1]: 
+2012-02-16T23:15:09+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:15:09 +0000
+2012-02-16T23:15:09+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:09+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:09+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=b70a3b3be82bfd380c85a526c63c1548&response_type=code
+2012-02-16T23:15:09+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:09+00:00 app[web.1]: Completed 302 Found in 11ms
+2012-02-16T23:15:09+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=19ms status=302 bytes=173
+2012-02-16T23:15:09+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:09 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:09+00:00 app[web.1]: 
+2012-02-16T23:15:09+00:00 app[web.1]: 
+2012-02-16T23:15:09+00:00 app[web.1]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:15:09 +0000
+2012-02-16T23:15:09+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:09+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"b70a3b3be82bfd380c85a526c63c1548", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:09+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=13ms status=200 bytes=120
+2012-02-16T23:15:09+00:00 app[web.1]: Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 5.7ms)
+2012-02-16T23:15:09+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:09+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:09 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:09+00:00 app[web.1]: 
+2012-02-16T23:15:09+00:00 app[web.1]: 
+2012-02-16T23:15:09+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:09+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=d819b6ca0cd04d7aea70be3180e2186c" for 50.17.69.62 at 2012-02-16 23:15:09 +0000
+2012-02-16T23:15:09+00:00 app[web.1]:   Parameters: {"oauth_token"=>"d819b6ca0cd04d7aea70be3180e2186c"}
+2012-02-16T23:15:09+00:00 app[web.1]: Completed 500 Internal Server Error in 9ms
+2012-02-16T23:15:09+00:00 app[web.1]: 
+2012-02-16T23:15:09+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:09+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000005704888>):
+2012-02-16T23:15:09+00:00 app[web.1]: 
+2012-02-16T23:15:09+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=d819b6ca0cd04d7aea70be3180e2186c] miss
+2012-02-16T23:15:09+00:00 app[web.1]: 
+2012-02-16T23:15:09+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=15ms status=500 bytes=728
+2012-02-16T23:15:09+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:09 +0000] "GET /oauth/user.json?oauth_token=d819b6ca0cd04d7aea70be3180e2186c HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:14+00:00 heroku[router]: GET studyegg.com/logout dyno=web.1 queue=0 wait=0ms service=95ms status=302 bytes=100
+2012-02-16T23:15:14+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:14 +0000] "GET /logout HTTP/1.1" 302 100 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:14+00:00 app[web.1]: 
+2012-02-16T23:15:14+00:00 app[web.1]:   Processing by AuthenticationsController#logout as HTML
+2012-02-16T23:15:14+00:00 app[web.1]: Completed 302 Found in 4ms
+2012-02-16T23:15:14+00:00 app[web.1]: 
+2012-02-16T23:15:14+00:00 app[web.1]: Redirected to http://studyegg.com/users/sign_out
+2012-02-16T23:15:14+00:00 app[web.1]: cache: [GET /logout] miss
+2012-02-16T23:15:14+00:00 app[web.1]: Started GET "/logout" for 74.97.33.168 at 2012-02-16 23:15:14 +0000
+2012-02-16T23:15:14+00:00 app[web.2]: 
+2012-02-16T23:15:14+00:00 app[web.2]: 
+2012-02-16T23:15:14+00:00 app[web.2]: Started GET "/users/sign_out" for 74.97.33.168 at 2012-02-16 23:15:14 +0000
+2012-02-16T23:15:14+00:00 app[web.2]:   Processing by SessionsController#destroy as HTML
+2012-02-16T23:15:14+00:00 app[web.2]: DESTROY SESSION
+2012-02-16T23:15:14+00:00 app[web.2]: destroy current_user: 
+2012-02-16T23:15:14+00:00 app[web.2]: Redirected to http://studyegg.com/
+2012-02-16T23:15:14+00:00 app[web.2]: Completed 302 Found in 17ms
+2012-02-16T23:15:14+00:00 app[web.2]: cache: [GET /users/sign_out] miss
+2012-02-16T23:15:14+00:00 heroku[router]: GET studyegg.com/users/sign_out dyno=web.2 queue=0 wait=0ms service=34ms status=302 bytes=86
+2012-02-16T23:15:14+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:14 +0000] "GET /users/sign_out HTTP/1.1" 302 86 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:14+00:00 app[web.1]: 
+2012-02-16T23:15:14+00:00 app[web.1]: 
+2012-02-16T23:15:14+00:00 app[web.1]: Started GET "/" for 74.97.33.168 at 2012-02-16 23:15:14 +0000
+2012-02-16T23:15:14+00:00 app[web.1]:   Processing by SessionsController#new as HTML
+2012-02-16T23:15:14+00:00 app[web.1]: Rendered sessions/new.html.haml within layouts/application (7.7ms)
+2012-02-16T23:15:14+00:00 app[web.1]: Rendered layouts/_header.html.haml (4.2ms)
+2012-02-16T23:15:14+00:00 app[web.1]: Completed 200 OK in 123ms (Views: 121.7ms | ActiveRecord: 0.0ms)
+2012-02-16T23:15:14+00:00 app[web.1]: Rendered layouts/_footer.html.haml (6.8ms)
+2012-02-16T23:15:14+00:00 app[web.1]: cache: [GET /] miss
+2012-02-16T23:15:14+00:00 heroku[router]: GET studyegg.com/ dyno=web.1 queue=0 wait=0ms service=144ms status=200 bytes=4371
+2012-02-16T23:15:14+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:14 +0000] "GET / HTTP/1.1" 200 1815 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:17+00:00 app[web.1]: 
+2012-02-16T23:15:17+00:00 app[web.1]: Started POST "/users/sign_in" for 74.97.33.168 at 2012-02-16 23:15:17 +0000
+2012-02-16T23:15:17+00:00 app[web.1]: 
+2012-02-16T23:15:17+00:00 app[web.1]:   Processing by SessionsController#create as HTML
+2012-02-16T23:15:17+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"vFXSod9JTSBUseadeFK1GkEFajUJGQMMp8YG4ShrAwA=", "user"=>{"email"=>"bill.derusha@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+2012-02-16T23:15:17+00:00 app[web.1]: Redirected to http://www.studyegg.com
+2012-02-16T23:15:17+00:00 heroku[router]: POST studyegg.com/users/sign_in dyno=web.1 queue=0 wait=0ms service=452ms status=302 bytes=89
+2012-02-16T23:15:17+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:17 +0000] "POST /users/sign_in HTTP/1.1" 302 89 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:17+00:00 app[web.1]: Completed 302 Found in 358ms
+2012-02-16T23:15:17+00:00 app[web.1]: cache: [POST /users/sign_in] invalidate, pass
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:15:18 +0000
+2012-02-16T23:15:18+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:18+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:18+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=3eddf7314f1dffa4a0efcf4828836c5c&response_type=code
+2012-02-16T23:15:18+00:00 app[web.2]: Completed 302 Found in 12ms
+2012-02-16T23:15:18+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:18+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:18 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:18+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=95ms status=302 bytes=173
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:15:18 +0000
+2012-02-16T23:15:18+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:18+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"3eddf7314f1dffa4a0efcf4828836c5c", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:18+00:00 app[web.2]: Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 6.5ms)
+2012-02-16T23:15:18+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:18+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=15ms status=200 bytes=120
+2012-02-16T23:15:18+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:18 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=04250abeb099e8a341f70e60b6f16526" for 184.72.142.63 at 2012-02-16 23:15:18 +0000
+2012-02-16T23:15:18+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:18+00:00 app[web.2]:   Parameters: {"oauth_token"=>"04250abeb099e8a341f70e60b6f16526"}
+2012-02-16T23:15:18+00:00 app[web.2]: Completed 500 Internal Server Error in 9ms
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x000000025bff48>):
+2012-02-16T23:15:18+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=04250abeb099e8a341f70e60b6f16526] miss
+2012-02-16T23:15:18+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=17ms status=500 bytes=728
+2012-02-16T23:15:18+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:18 +0000] "GET /oauth/user.json?oauth_token=04250abeb099e8a341f70e60b6f16526 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:15:18 +0000
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:18+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:18+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=75cbecdcd7f0cfe09a87959eb31236c8&response_type=code
+2012-02-16T23:15:18+00:00 app[web.2]: Completed 302 Found in 12ms
+2012-02-16T23:15:18+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:18+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=17ms status=302 bytes=173
+2012-02-16T23:15:18+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:18 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:15:18 +0000
+2012-02-16T23:15:18+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"75cbecdcd7f0cfe09a87959eb31236c8", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:18+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:18+00:00 app[web.2]: Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 6.2ms)
+2012-02-16T23:15:18+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:18+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=13ms status=200 bytes=120
+2012-02-16T23:15:18+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:18 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:18+00:00 app[web.1]: 
+2012-02-16T23:15:18+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=44e61badc5b7ddbf790bc4cd14b78b8f" for 50.17.69.62 at 2012-02-16 23:15:18 +0000
+2012-02-16T23:15:18+00:00 app[web.1]: 
+2012-02-16T23:15:18+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: 
+2012-02-16T23:15:18+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 166.186.168.42 at 2012-02-16 23:15:18 +0000
+2012-02-16T23:15:18+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:18+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:18+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=932180ccb7bb197f9b43bc8aa96a4fde&response_type=code
+2012-02-16T23:15:18+00:00 app[web.2]: Completed 302 Found in 11ms
+2012-02-16T23:15:18+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:18+00:00 app[web.1]:   Parameters: {"oauth_token"=>"44e61badc5b7ddbf790bc4cd14b78b8f"}
+2012-02-16T23:15:18+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=16ms status=302 bytes=173
+2012-02-16T23:15:18+00:00 heroku[nginx]: 166.186.168.42 - - [16/Feb/2012:23:15:18 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11" studyegg.com
+2012-02-16T23:15:19+00:00 app[web.1]: Completed 500 Internal Server Error in 98ms
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000005ab4140>):
+2012-02-16T23:15:19+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=44e61badc5b7ddbf790bc4cd14b78b8f] miss
+2012-02-16T23:15:19+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=494ms status=500 bytes=728
+2012-02-16T23:15:19+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:19 +0000] "GET /oauth/user.json?oauth_token=44e61badc5b7ddbf790bc4cd14b78b8f HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:19+00:00 app[web.2]: 
+2012-02-16T23:15:19+00:00 app[web.2]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:15:19 +0000
+2012-02-16T23:15:19+00:00 app[web.2]: 
+2012-02-16T23:15:19+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:19+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"932180ccb7bb197f9b43bc8aa96a4fde", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:19+00:00 app[web.2]: Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 5.8ms)
+2012-02-16T23:15:19+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:19+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=12ms status=200 bytes=120
+2012-02-16T23:15:19+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:19 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=767f9c54bd77c4f65b3b2082a76571e4" for 50.17.69.62 at 2012-02-16 23:15:19 +0000
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:19+00:00 app[web.1]:   Parameters: {"oauth_token"=>"767f9c54bd77c4f65b3b2082a76571e4"}
+2012-02-16T23:15:19+00:00 app[web.1]: Completed 500 Internal Server Error in 79ms
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:19+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000005a6a5e0>):
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=767f9c54bd77c4f65b3b2082a76571e4] miss
+2012-02-16T23:15:19+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=380ms status=500 bytes=728
+2012-02-16T23:15:19+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:19 +0000] "GET /oauth/user.json?oauth_token=767f9c54bd77c4f65b3b2082a76571e4 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:19+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:19+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:15:19 +0000
+2012-02-16T23:15:19+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=d969a67762b9538da211698b6e22a645&response_type=code
+2012-02-16T23:15:19+00:00 app[web.1]: Completed 302 Found in 15ms
+2012-02-16T23:15:19+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:19+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=68ms status=302 bytes=173
+2012-02-16T23:15:19+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:19 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:19+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"d969a67762b9538da211698b6e22a645", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:15:19 +0000
+2012-02-16T23:15:19+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]: Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 7.5ms)
+2012-02-16T23:15:19+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:19+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=28ms status=200 bytes=120
+2012-02-16T23:15:19+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:19 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=9e4e2e8e5bef64e695ccd813543f4e29" for 50.17.69.62 at 2012-02-16 23:15:19 +0000
+2012-02-16T23:15:19+00:00 app[web.1]:   Parameters: {"oauth_token"=>"9e4e2e8e5bef64e695ccd813543f4e29"}
+2012-02-16T23:15:19+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:19+00:00 app[web.1]: Completed 500 Internal Server Error in 11ms
+2012-02-16T23:15:19+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x000000058a5e08>):
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:19+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=9e4e2e8e5bef64e695ccd813543f4e29] miss
+2012-02-16T23:15:19+00:00 app[web.1]: 
+2012-02-16T23:15:19+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=23ms status=500 bytes=728
+2012-02-16T23:15:19+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:19 +0000] "GET /oauth/user.json?oauth_token=9e4e2e8e5bef64e695ccd813543f4e29 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:20+00:00 app[web.1]: 
+2012-02-16T23:15:20+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:15:20 +0000
+2012-02-16T23:15:20+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:20+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:20+00:00 app[web.1]: 
+2012-02-16T23:15:20+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=65ms status=302 bytes=173
+2012-02-16T23:15:20+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=2f603359f09b3691db77f89172d45fb7&response_type=code
+2012-02-16T23:15:20+00:00 app[web.1]: Completed 302 Found in 58ms
+2012-02-16T23:15:20+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:20+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:15:20 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:15:20+00:00 app[web.1]: 
+2012-02-16T23:15:20+00:00 app[web.1]: 
+2012-02-16T23:15:20+00:00 app[web.1]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:15:20 +0000
+2012-02-16T23:15:20+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:20+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"2f603359f09b3691db77f89172d45fb7", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:20+00:00 app[web.1]: Completed 200 OK in 47ms (Views: 0.4ms | ActiveRecord: 43.6ms)
+2012-02-16T23:15:20+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:20+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=55ms status=200 bytes=120
+2012-02-16T23:15:20+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:20 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:20+00:00 app[web.1]: 
+2012-02-16T23:15:20+00:00 app[web.1]: 
+2012-02-16T23:15:20+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=e93acfe8099bf53322e74a479d10748d" for 50.17.69.62 at 2012-02-16 23:15:20 +0000
+2012-02-16T23:15:20+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:20+00:00 app[web.1]:   Parameters: {"oauth_token"=>"e93acfe8099bf53322e74a479d10748d"}
+2012-02-16T23:15:20+00:00 app[web.1]: Completed 500 Internal Server Error in 8ms
+2012-02-16T23:15:20+00:00 app[web.1]: 
+2012-02-16T23:15:20+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:20+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x00000005705788>):
+2012-02-16T23:15:20+00:00 app[web.1]: 
+2012-02-16T23:15:20+00:00 app[web.1]: 
+2012-02-16T23:15:20+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=e93acfe8099bf53322e74a479d10748d] miss
+2012-02-16T23:15:20+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=13ms status=500 bytes=728
+2012-02-16T23:15:20+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:20 +0000] "GET /oauth/user.json?oauth_token=e93acfe8099bf53322e74a479d10748d HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:21+00:00 app[web.2]: 
+2012-02-16T23:15:21+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 166.186.168.42 at 2012-02-16 23:15:21 +0000
+2012-02-16T23:15:21+00:00 app[web.2]: 
+2012-02-16T23:15:21+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:21+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:21+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=d0b187eafad122bae9dddb2d5e7997eb&response_type=code
+2012-02-16T23:15:21+00:00 app[web.2]: Completed 302 Found in 10ms
+2012-02-16T23:15:21+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:21+00:00 heroku[nginx]: 166.186.168.42 - - [16/Feb/2012:23:15:21 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11" studyegg.com
+2012-02-16T23:15:21+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=20ms status=302 bytes=173
+2012-02-16T23:15:21+00:00 app[web.1]: 
+2012-02-16T23:15:21+00:00 app[web.1]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:15:21 +0000
+2012-02-16T23:15:21+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:21+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"d0b187eafad122bae9dddb2d5e7997eb", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:21+00:00 app[web.1]: 
+2012-02-16T23:15:21+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=29ms status=200 bytes=120
+2012-02-16T23:15:21+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:21 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:21+00:00 app[web.1]: Completed 200 OK in 24ms (Views: 0.3ms | ActiveRecord: 21.6ms)
+2012-02-16T23:15:21+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:22+00:00 app[web.2]: 
+2012-02-16T23:15:22+00:00 app[web.2]: 
+2012-02-16T23:15:22+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=78ba4fedf6d4bf27fc739f392f1339f4" for 50.17.69.62 at 2012-02-16 23:15:22 +0000
+2012-02-16T23:15:22+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:22+00:00 app[web.2]:   Parameters: {"oauth_token"=>"78ba4fedf6d4bf27fc739f392f1339f4"}
+2012-02-16T23:15:22+00:00 app[web.2]: Completed 500 Internal Server Error in 8ms
+2012-02-16T23:15:22+00:00 app[web.2]: 
+2012-02-16T23:15:22+00:00 app[web.2]: NoMethodError (undefined method `user_type' for #<User:0x000000058981e0>):
+2012-02-16T23:15:22+00:00 app[web.2]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:22+00:00 app[web.2]: 
+2012-02-16T23:15:22+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=78ba4fedf6d4bf27fc739f392f1339f4] miss
+2012-02-16T23:15:22+00:00 app[web.2]: 
+2012-02-16T23:15:22+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=15ms status=500 bytes=728
+2012-02-16T23:15:22+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:15:22 +0000] "GET /oauth/user.json?oauth_token=78ba4fedf6d4bf27fc739f392f1339f4 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:23+00:00 app[web.1]: 
+2012-02-16T23:15:23+00:00 app[web.1]: 
+2012-02-16T23:15:23+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 166.186.168.42 at 2012-02-16 23:15:23 +0000
+2012-02-16T23:15:23+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:23+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:23+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=58ff2050e56845c25634ff13a35d269f&response_type=code
+2012-02-16T23:15:23+00:00 app[web.1]: Completed 302 Found in 11ms
+2012-02-16T23:15:23+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:23+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=18ms status=302 bytes=173
+2012-02-16T23:15:23+00:00 heroku[nginx]: 166.186.168.42 - - [16/Feb/2012:23:15:23 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11" studyegg.com
+2012-02-16T23:15:23+00:00 app[web.1]: 
+2012-02-16T23:15:23+00:00 app[web.1]: 
+2012-02-16T23:15:23+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:23+00:00 app[web.1]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:15:23 +0000
+2012-02-16T23:15:23+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"58ff2050e56845c25634ff13a35d269f", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:23+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:23 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:23+00:00 app[web.1]: 
+2012-02-16T23:15:23+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:23+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:23+00:00 app[web.1]: 
+2012-02-16T23:15:23+00:00 app[web.1]: Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 25.6ms)
+2012-02-16T23:15:23+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=31197071812407c9a333b249ae8882a5" for 184.72.142.63 at 2012-02-16 23:15:23 +0000
+2012-02-16T23:15:23+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=33ms status=200 bytes=120
+2012-02-16T23:15:23+00:00 app[web.1]:   Parameters: {"oauth_token"=>"31197071812407c9a333b249ae8882a5"}
+2012-02-16T23:15:23+00:00 app[web.1]: Completed 500 Internal Server Error in 39ms
+2012-02-16T23:15:23+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x0000000534b098>):
+2012-02-16T23:15:23+00:00 app[web.1]: 
+2012-02-16T23:15:23+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:23+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=31197071812407c9a333b249ae8882a5] miss
+2012-02-16T23:15:23+00:00 app[web.1]: 
+2012-02-16T23:15:23+00:00 app[web.1]: 
+2012-02-16T23:15:23+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=47ms status=500 bytes=728
+2012-02-16T23:15:23+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:23 +0000] "GET /oauth/user.json?oauth_token=31197071812407c9a333b249ae8882a5 HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:15:24+00:00 app[web.1]: 
+2012-02-16T23:15:24+00:00 app[web.1]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 166.186.168.42 at 2012-02-16 23:15:24 +0000
+2012-02-16T23:15:24+00:00 app[web.1]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:15:24+00:00 app[web.1]: 
+2012-02-16T23:15:24+00:00 app[web.1]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:24+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.1 queue=0 wait=0ms service=18ms status=302 bytes=173
+2012-02-16T23:15:24+00:00 app[web.1]: Redirected to http://www.studyegg.com/auth/identity/callback?code=f3f9e7d9697871c867af786d909167e1&response_type=code
+2012-02-16T23:15:24+00:00 app[web.1]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:15:24+00:00 app[web.1]: Completed 302 Found in 11ms
+2012-02-16T23:15:24+00:00 heroku[nginx]: 166.186.168.42 - - [16/Feb/2012:23:15:24 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11" studyegg.com
+2012-02-16T23:15:24+00:00 app[web.2]: 
+2012-02-16T23:15:24+00:00 app[web.2]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:15:24 +0000
+2012-02-16T23:15:24+00:00 app[web.2]: 
+2012-02-16T23:15:24+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:15:24+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"f3f9e7d9697871c867af786d909167e1", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:15:24+00:00 app[web.2]: Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 6.4ms)
+2012-02-16T23:15:24+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:15:24+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=16ms status=200 bytes=120
+2012-02-16T23:15:24+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:24 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:15:24+00:00 app[web.1]: 
+2012-02-16T23:15:24+00:00 app[web.1]: 
+2012-02-16T23:15:24+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=ed5e147295093865399c910a213476bc" for 184.72.142.63 at 2012-02-16 23:15:24 +0000
+2012-02-16T23:15:24+00:00 app[web.1]:   Parameters: {"oauth_token"=>"ed5e147295093865399c910a213476bc"}
+2012-02-16T23:15:24+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:15:24+00:00 app[web.1]: 
+2012-02-16T23:15:24+00:00 app[web.1]: NoMethodError (undefined method `user_type' for #<User:0x0000000510fdd8>):
+2012-02-16T23:15:24+00:00 app[web.1]: 
+2012-02-16T23:15:24+00:00 app[web.1]:   app/controllers/auth_controller.rb:53:in `user'
+2012-02-16T23:15:24+00:00 app[web.1]: Completed 500 Internal Server Error in 8ms
+2012-02-16T23:15:24+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=13ms status=500 bytes=728
+2012-02-16T23:15:24+00:00 app[web.1]: 
+2012-02-16T23:15:24+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=ed5e147295093865399c910a213476bc] miss
+2012-02-16T23:15:24+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:15:24 +0000] "GET /oauth/user.json?oauth_token=ed5e147295093865399c910a213476bc HTTP/1.1" 500 728 "-" "Ruby" studyegg.com
+2012-02-16T23:19:14+00:00 heroku[run.1]: State changed from created to starting
+2012-02-16T23:19:22+00:00 app[run.1]: Awaiting client
+2012-02-16T23:19:22+00:00 app[run.1]: Starting process with command `bundle exec rake db:migrate`
+2012-02-16T23:19:22+00:00 heroku[run.1]: State changed from starting to up
+2012-02-16T23:19:29+00:00 heroku[run.1]: Process exited with status 0
+2012-02-16T23:19:29+00:00 heroku[run.1]: State changed from up to complete
+2012-02-16T23:19:52+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:19:52 +0000
+2012-02-16T23:19:52+00:00 app[web.2]: 
+2012-02-16T23:19:52+00:00 app[web.2]: 
+2012-02-16T23:19:52+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:19:52+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:19:52+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=cba5c596bc516e079a245353f69320b8&response_type=code
+2012-02-16T23:19:52+00:00 app[web.2]: Completed 302 Found in 14ms
+2012-02-16T23:19:52+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:19:52+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=21ms status=302 bytes=173
+2012-02-16T23:19:52+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:19:52 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:19:52+00:00 app[web.2]: 
+2012-02-16T23:19:52+00:00 app[web.2]: 
+2012-02-16T23:19:52+00:00 app[web.2]: Started POST "/oauth/token" for 50.17.69.62 at 2012-02-16 23:19:52 +0000
+2012-02-16T23:19:52+00:00 app[web.2]:   Processing by AuthController#access_token as */*
+2012-02-16T23:19:52+00:00 app[web.2]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"cba5c596bc516e079a245353f69320b8", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:19:52+00:00 app[web.2]: Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+2012-02-16T23:19:52+00:00 app[web.2]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:19:52+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.2 queue=0 wait=0ms service=25ms status=200 bytes=120
+2012-02-16T23:19:52+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:19:52 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:19:52+00:00 app[web.1]: 
+2012-02-16T23:19:52+00:00 app[web.1]: 
+2012-02-16T23:19:52+00:00 app[web.1]: Started GET "/oauth/user.json?oauth_token=3a9ca2699bd2b1dbc665e6b22fba680c" for 50.17.69.62 at 2012-02-16 23:19:52 +0000
+2012-02-16T23:19:52+00:00 app[web.1]:   Processing by AuthController#user as JSON
+2012-02-16T23:19:52+00:00 app[web.1]:   Parameters: {"oauth_token"=>"3a9ca2699bd2b1dbc665e6b22fba680c"}
+2012-02-16T23:19:52+00:00 app[web.1]: Completed 200 OK in 18ms (Views: 1.0ms | ActiveRecord: 6.4ms)
+2012-02-16T23:19:52+00:00 app[web.1]: cache: [GET /oauth/user.json?oauth_token=3a9ca2699bd2b1dbc665e6b22fba680c] miss
+2012-02-16T23:19:52+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.1 queue=0 wait=0ms service=26ms status=200 bytes=200
+2012-02-16T23:19:52+00:00 heroku[nginx]: 50.17.69.62 - - [16/Feb/2012:23:19:52 +0000] "GET /oauth/user.json?oauth_token=3a9ca2699bd2b1dbc665e6b22fba680c HTTP/1.1" 200 200 "-" "Ruby" studyegg.com
+2012-02-16T23:19:58+00:00 app[web.1]: 
+2012-02-16T23:19:58+00:00 app[web.1]: 
+2012-02-16T23:19:58+00:00 app[web.1]: Started GET "/" for 74.97.33.168 at 2012-02-16 23:19:58 +0000
+2012-02-16T23:19:58+00:00 app[web.1]:   Processing by SessionsController#new as HTML
+2012-02-16T23:19:58+00:00 app[web.1]: Redirected to http://www.studyegg.com
+2012-02-16T23:19:58+00:00 app[web.1]: Completed 302 Found in 4ms
+2012-02-16T23:19:58+00:00 app[web.1]: cache: [GET /] miss
+2012-02-16T23:19:58+00:00 heroku[router]: GET studyegg.com/ dyno=web.1 queue=0 wait=0ms service=10ms status=302 bytes=89
+2012-02-16T23:19:58+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:19:58 +0000] "GET / HTTP/1.1" 302 89 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:20:09+00:00 app[web.1]: 
+2012-02-16T23:20:09+00:00 app[web.1]: Started GET "/users/sign_out" for 74.97.33.168 at 2012-02-16 23:20:09 +0000
+2012-02-16T23:20:09+00:00 app[web.1]:   Processing by SessionsController#destroy as HTML
+2012-02-16T23:20:09+00:00 app[web.1]: 
+2012-02-16T23:20:09+00:00 app[web.1]: DESTROY SESSION
+2012-02-16T23:20:09+00:00 app[web.1]: destroy current_user: 
+2012-02-16T23:20:09+00:00 app[web.1]: Redirected to http://studyegg.com/
+2012-02-16T23:20:09+00:00 app[web.1]: Completed 302 Found in 12ms
+2012-02-16T23:20:09+00:00 app[web.1]: cache: [GET /users/sign_out] miss
+2012-02-16T23:20:09+00:00 heroku[router]: GET studyegg.com/users/sign_out dyno=web.1 queue=0 wait=0ms service=18ms status=302 bytes=86
+2012-02-16T23:20:09+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:20:09 +0000] "GET /users/sign_out HTTP/1.1" 302 86 "http://www.studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:20:09+00:00 app[web.1]: 
+2012-02-16T23:20:09+00:00 app[web.1]: 
+2012-02-16T23:20:09+00:00 app[web.1]: Started GET "/" for 74.97.33.168 at 2012-02-16 23:20:09 +0000
+2012-02-16T23:20:09+00:00 app[web.1]:   Processing by SessionsController#new as HTML
+2012-02-16T23:20:09+00:00 app[web.1]: Rendered sessions/new.html.haml within layouts/application (2.2ms)
+2012-02-16T23:20:09+00:00 app[web.1]: Rendered layouts/_footer.html.haml (0.2ms)
+2012-02-16T23:20:09+00:00 app[web.1]: Rendered layouts/_header.html.haml (0.4ms)
+2012-02-16T23:20:09+00:00 app[web.1]: Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+2012-02-16T23:20:09+00:00 app[web.1]: cache: [GET /] miss
+2012-02-16T23:20:09+00:00 heroku[router]: GET studyegg.com/ dyno=web.1 queue=0 wait=0ms service=12ms status=200 bytes=4371
+2012-02-16T23:20:09+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:20:09 +0000] "GET / HTTP/1.1" 200 1817 "http://www.studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:20:09+00:00 app[web.2]: cache: [GET /assets/application-d6226bae46a066944c2ac7673ee489d7.css] miss
+2012-02-16T23:20:09+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:20:09 +0000] "GET /assets/application-d6226bae46a066944c2ac7673ee489d7.css HTTP/1.1" 200 1034 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:20:09+00:00 heroku[router]: GET studyegg.com/assets/application-d6226bae46a066944c2ac7673ee489d7.css dyno=web.2 queue=0 wait=0ms service=7ms status=200 bytes=3395
+2012-02-16T23:20:09+00:00 app[web.2]: cache: [GET /assets/application-bb6314a88731cb2766cd4e57684414eb.js] miss
+2012-02-16T23:20:09+00:00 app[web.2]: cache: [GET /assets/splashes/SE_Shield.gif] miss
+2012-02-16T23:20:09+00:00 heroku[router]: GET studyegg.com/assets/application-bb6314a88731cb2766cd4e57684414eb.js dyno=web.2 queue=0 wait=0ms service=9ms status=200 bytes=99549
+2012-02-16T23:20:09+00:00 heroku[router]: GET studyegg.com/assets/splashes/SE_Shield.gif dyno=web.2 queue=0 wait=0ms service=3ms status=200 bytes=2989
+2012-02-16T23:20:09+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:20:09 +0000] "GET /assets/application-bb6314a88731cb2766cd4e57684414eb.js HTTP/1.1" 200 36036 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:20:09+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:20:09 +0000] "GET /assets/splashes/SE_Shield.gif HTTP/1.1" 200 2989 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:20:09+00:00 app[web.2]: cache: [GET /assets/splashes/default.jpg] miss
+2012-02-16T23:20:09+00:00 heroku[router]: GET studyegg.com/assets/splashes/default.jpg dyno=web.2 queue=0 wait=0ms service=13ms status=200 bytes=196102
+2012-02-16T23:20:10+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:20:10 +0000] "GET /assets/splashes/default.jpg HTTP/1.1" 200 196102 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:20:10+00:00 heroku[router]: GET studyegg.com/assets/favicon.ico dyno=web.1 queue=0 wait=0ms service=3ms status=200 bytes=1150
+2012-02-16T23:20:10+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:20:10 +0000] "GET /assets/favicon.ico HTTP/1.1" 200 1150 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:20:10+00:00 app[web.1]: cache: [GET /assets/favicon.ico] miss
+2012-02-16T23:20:10+00:00 app[web.2]: 
+2012-02-16T23:20:10+00:00 app[web.2]: 
+2012-02-16T23:20:10+00:00 app[web.2]: Started POST "/users/sign_in" for 74.97.33.168 at 2012-02-16 23:20:10 +0000
+2012-02-16T23:20:10+00:00 app[web.2]:   Processing by SessionsController#create as HTML
+2012-02-16T23:20:10+00:00 app[web.2]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q17kBC+tLS8ZVLC/HCGvsv+tRrzcgSIntHaXGOlpd54=", "user"=>{"email"=>"bill.derusha@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+2012-02-16T23:20:11+00:00 app[web.2]: Completed 302 Found in 205ms
+2012-02-16T23:20:11+00:00 app[web.2]: Redirected to http://www.studyegg.com
+2012-02-16T23:20:11+00:00 app[web.2]: cache: [POST /users/sign_in] invalidate, pass
+2012-02-16T23:20:11+00:00 heroku[router]: POST studyegg.com/users/sign_in dyno=web.2 queue=0 wait=0ms service=214ms status=302 bytes=89
+2012-02-16T23:20:11+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:20:11 +0000] "POST /users/sign_in HTTP/1.1" 302 89 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:20:11+00:00 app[web.2]: 
+2012-02-16T23:20:11+00:00 app[web.2]: 
+2012-02-16T23:20:11+00:00 app[web.2]: Started GET "/oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback" for 74.97.33.168 at 2012-02-16 23:20:11 +0000
+2012-02-16T23:20:11+00:00 app[web.2]:   Parameters: {"response_type"=>"code", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:20:11+00:00 app[web.2]:   Processing by AuthController#authorize as HTML
+2012-02-16T23:20:11+00:00 app[web.2]: Redirected to http://www.studyegg.com/auth/identity/callback?code=4d6f5d3e0493727e07b87f2aebfecf20&response_type=code
+2012-02-16T23:20:11+00:00 app[web.2]: Completed 302 Found in 64ms
+2012-02-16T23:20:11+00:00 app[web.2]: cache: [GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback] miss
+2012-02-16T23:20:11+00:00 heroku[nginx]: 74.97.33.168 - - [16/Feb/2012:23:20:11 +0000] "GET /oauth/authorize?response_type=code&client_id=YE0NYveQGoFsNLX220Dy5g&redirect_uri=http%3A%2F%2Fwww.studyegg.com%2Fauth%2Fidentity%2Fcallback HTTP/1.1" 302 173 "http://studyegg.com/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.46 Safari/535.11" studyegg.com
+2012-02-16T23:20:11+00:00 heroku[router]: GET studyegg.com/oauth/authorize dyno=web.2 queue=0 wait=0ms service=69ms status=302 bytes=173
+2012-02-16T23:20:11+00:00 app[web.1]: 
+2012-02-16T23:20:11+00:00 app[web.1]: 
+2012-02-16T23:20:11+00:00 app[web.1]:   Processing by AuthController#access_token as */*
+2012-02-16T23:20:11+00:00 app[web.1]: Started POST "/oauth/token" for 184.72.142.63 at 2012-02-16 23:20:11 +0000
+2012-02-16T23:20:11+00:00 app[web.1]:   Parameters: {"grant_type"=>"authorization_code", "code"=>"4d6f5d3e0493727e07b87f2aebfecf20", "client_id"=>"YE0NYveQGoFsNLX220Dy5g", "client_secret"=>"aqpGBedDnHFyp5MmgT8KErr9D015ScmaY8r3vHg5C0", "redirect_uri"=>"http://www.studyegg.com/auth/identity/callback"}
+2012-02-16T23:20:11+00:00 app[web.1]: Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 6.4ms)
+2012-02-16T23:20:11+00:00 app[web.1]: cache: [POST /oauth/token] invalidate, pass
+2012-02-16T23:20:11+00:00 heroku[router]: POST studyegg.com/oauth/token dyno=web.1 queue=0 wait=0ms service=14ms status=200 bytes=120
+2012-02-16T23:20:11+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:20:11 +0000] "POST /oauth/token HTTP/1.1" 200 120 "-" "Ruby" studyegg.com
+2012-02-16T23:20:11+00:00 app[web.2]: 
+2012-02-16T23:20:11+00:00 app[web.2]: 
+2012-02-16T23:20:11+00:00 app[web.2]: Started GET "/oauth/user.json?oauth_token=fa233af0c649231d97910ee48c1ad9fa" for 184.72.142.63 at 2012-02-16 23:20:11 +0000
+2012-02-16T23:20:11+00:00 app[web.2]:   Processing by AuthController#user as JSON
+2012-02-16T23:20:11+00:00 app[web.2]:   Parameters: {"oauth_token"=>"fa233af0c649231d97910ee48c1ad9fa"}
+2012-02-16T23:20:11+00:00 app[web.2]: Completed 200 OK in 9ms (Views: 1.1ms | ActiveRecord: 5.1ms)
+2012-02-16T23:20:11+00:00 app[web.2]: cache: [GET /oauth/user.json?oauth_token=fa233af0c649231d97910ee48c1ad9fa] miss
+2012-02-16T23:20:11+00:00 heroku[router]: GET studyegg.com/oauth/user.json dyno=web.2 queue=0 wait=0ms service=18ms status=200 bytes=200
+2012-02-16T23:20:11+00:00 heroku[nginx]: 184.72.142.63 - - [16/Feb/2012:23:20:11 +0000] "GET /oauth/user.json?oauth_token=fa233af0c649231d97910ee48c1ad9fa HTTP/1.1" 200 200 "-" "Ruby" studyegg.com
+2012-02-16T23:26:14+00:00 app[web.1]: 
+2012-02-16T23:26:14+00:00 app[web.1]: 
+2012-02-16T23:26:14+00:00 app[web.1]:   Processing by SessionsController#new as HTML
+2012-02-16T23:26:14+00:00 app[web.1]: Started GET "/" for 193.106.136.52 at 2012-02-16 23:26:14 +0000
+2012-02-16T23:26:14+00:00 app[web.1]: Rendered sessions/new.html.haml within layouts/application (2.2ms)
+2012-02-16T23:26:14+00:00 app[web.1]: Rendered layouts/_header.html.haml (0.4ms)
+2012-02-16T23:26:14+00:00 app[web.1]: Rendered layouts/_footer.html.haml (0.2ms)
+2012-02-16T23:26:14+00:00 app[web.1]: Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+2012-02-16T23:26:14+00:00 heroku[router]: GET studyegg.com/ dyno=web.1 queue=0 wait=0ms service=10ms status=200 bytes=4371
+2012-02-16T23:26:14+00:00 app[web.1]: cache: [GET /] miss
+2012-02-16T23:26:14+00:00 heroku[nginx]: 193.106.136.52 - - [16/Feb/2012:23:26:14 +0000] "GET / HTTP/1.0" 200 4371 "http://serialz.com.ua/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; FunWebProducts; MRA 4.6 (build 01425); .NET CLR 1.1.4322; .NET CLR 2.0.50727)" studyegg.com
+2012-02-16T23:26:14+00:00 app[web.2]: 
+2012-02-16T23:26:14+00:00 app[web.2]: 
+2012-02-16T23:26:14+00:00 app[web.2]: Started GET "/" for 193.106.136.52 at 2012-02-16 23:26:14 +0000
+2012-02-16T23:26:14+00:00 app[web.2]:   Processing by SessionsController#new as HTML
+2012-02-16T23:26:14+00:00 app[web.2]: Rendered sessions/new.html.haml within layouts/application (6.5ms)
+2012-02-16T23:26:14+00:00 app[web.2]: Rendered layouts/_header.html.haml (3.9ms)
+2012-02-16T23:26:14+00:00 app[web.2]: Rendered layouts/_footer.html.haml (6.1ms)
+2012-02-16T23:26:14+00:00 app[web.2]: Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+2012-02-16T23:26:14+00:00 app[web.2]: cache: [GET /] miss
+2012-02-16T23:26:14+00:00 heroku[router]: GET studyegg.com/ dyno=web.2 queue=0 wait=0ms service=38ms status=200 bytes=4371
+2012-02-16T23:26:15+00:00 heroku[nginx]: 193.106.136.52 - - [16/Feb/2012:23:26:15 +0000] "GET / HTTP/1.0" 200 4371 "http://serialz.com.ua/" "Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 6.0 ; .NET CLR 2.0.50215; SL Commerce Client v1.0; Tablet PC 2.0" studyegg.com
+2012-02-16T23:26:16+00:00 app[web.2]: 
+2012-02-16T23:26:16+00:00 app[web.2]: 
+2012-02-16T23:26:16+00:00 app[web.2]: Started GET "/" for 193.106.136.52 at 2012-02-16 23:26:16 +0000
+2012-02-16T23:26:16+00:00 app[web.2]:   Processing by SessionsController#new as HTML
+2012-02-16T23:26:16+00:00 app[web.2]: Rendered sessions/new.html.haml within layouts/application (2.3ms)
+2012-02-16T23:26:16+00:00 app[web.2]: Rendered layouts/_header.html.haml (0.5ms)
+2012-02-16T23:26:16+00:00 app[web.2]: Rendered layouts/_footer.html.haml (0.2ms)
+2012-02-16T23:26:16+00:00 app[web.2]: Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+2012-02-16T23:26:16+00:00 app[web.2]: cache: [GET /] miss
+2012-02-16T23:26:16+00:00 heroku[router]: GET studyegg.com/ dyno=web.2 queue=0 wait=0ms service=17ms status=200 bytes=4371
+2012-02-16T23:26:16+00:00 heroku[nginx]: 193.106.136.52 - - [16/Feb/2012:23:26:16 +0000] "GET / HTTP/1.0" 200 4371 "http://serialz.com.ua/" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1) Opera 7.54 [en]" studyegg.com
+2012-02-16T23:29:50+00:00 app[web.1]: 
+2012-02-16T23:29:50+00:00 app[web.1]: Started GET "/" for 208.80.194.34 at 2012-02-16 23:29:50 +0000
+2012-02-16T23:29:50+00:00 app[web.1]: 
+2012-02-16T23:29:50+00:00 app[web.1]:   Processing by SessionsController#new as HTML
+2012-02-16T23:29:50+00:00 heroku[router]: GET studyegg.com/ dyno=web.1 queue=0 wait=0ms service=13ms status=200 bytes=4371
+2012-02-16T23:29:50+00:00 app[web.1]: Rendered sessions/new.html.haml within layouts/application (3.2ms)
+2012-02-16T23:29:50+00:00 app[web.1]: Rendered layouts/_header.html.haml (0.5ms)
+2012-02-16T23:29:50+00:00 app[web.1]: Rendered layouts/_footer.html.haml (0.2ms)
+2012-02-16T23:29:50+00:00 app[web.1]: Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+2012-02-16T23:29:50+00:00 app[web.1]: cache: [GET /] miss
+2012-02-16T23:29:50+00:00 heroku[nginx]: 208.80.194.34 - - [16/Feb/2012:23:29:50 +0000] "GET / HTTP/1.0" 200 4371 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; {EA977ADD-F89E-CD12-4114-52C1061160B7}; .NET CLR 1.1.4322)" studyegg.com
+2012-02-16T23:33:09+00:00 app[web.1]: 
+2012-02-16T23:33:09+00:00 app[web.1]: 
+2012-02-16T23:33:09+00:00 app[web.1]: Started GET "/" for 166.248.13.220 at 2012-02-16 23:33:09 +0000
+2012-02-16T23:33:09+00:00 app[web.1]:   Processing by SessionsController#new as HTML
+2012-02-16T23:33:09+00:00 app[web.1]: Rendered sessions/new.html.haml within layouts/application (2.1ms)
+2012-02-16T23:33:09+00:00 app[web.1]: Rendered layouts/_header.html.haml (0.4ms)
+2012-02-16T23:33:09+00:00 app[web.1]: Rendered layouts/_footer.html.haml (0.2ms)
+2012-02-16T23:33:09+00:00 heroku[router]: GET studyegg.com/ dyno=web.1 queue=0 wait=0ms service=53ms status=200 bytes=4371
+2012-02-16T23:33:09+00:00 app[web.1]: cache: [GET /] miss
+2012-02-16T23:33:09+00:00 app[web.1]: Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+2012-02-16T23:33:09+00:00 heroku[nginx]: 166.248.13.220 - - [16/Feb/2012:23:33:09 +0000] "GET / HTTP/1.1" 200 1812 "http://www.google.com/search?hl=en&redir_esc=&client=ms-android-verizon&source=android-launcher-widget&v=133247963&qsubts=1329435192790&action=devloc&q=study+egg&v=133247963" "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; ADR6400L 4G Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" studyegg.com
+2012-02-16T23:33:09+00:00 app[web.2]: cache: [GET /assets/application-bb6314a88731cb2766cd4e57684414eb.js] miss
+2012-02-16T23:33:09+00:00 heroku[router]: GET studyegg.com/assets/application-bb6314a88731cb2766cd4e57684414eb.js dyno=web.2 queue=0 wait=0ms service=13ms status=200 bytes=99549
+2012-02-16T23:33:09+00:00 heroku[router]: GET studyegg.com/assets/splashes/SE_Shield.gif dyno=web.1 queue=0 wait=0ms service=4ms status=200 bytes=2989
+2012-02-16T23:33:09+00:00 app[web.1]: cache: [GET /assets/splashes/SE_Shield.gif] miss
+2012-02-16T23:33:10+00:00 heroku[nginx]: 166.248.13.220 - - [16/Feb/2012:23:33:10 +0000] "GET /assets/splashes/SE_Shield.gif HTTP/1.1" 200 2989 "http://studyegg.com/" "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; ADR6400L 4G Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" studyegg.com
+2012-02-16T23:33:10+00:00 heroku[nginx]: 166.248.13.220 - - [16/Feb/2012:23:33:10 +0000] "GET /assets/application-bb6314a88731cb2766cd4e57684414eb.js HTTP/1.1" 200 36131 "http://studyegg.com/" "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; ADR6400L 4G Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" studyegg.com
+2012-02-16T23:33:12+00:00 app[web.2]: cache: [GET /assets/application-d6226bae46a066944c2ac7673ee489d7.css] miss
+2012-02-16T23:33:12+00:00 heroku[router]: GET studyegg.com/assets/application-d6226bae46a066944c2ac7673ee489d7.css dyno=web.2 queue=0 wait=0ms service=4ms status=200 bytes=3395
+2012-02-16T23:33:12+00:00 heroku[nginx]: 166.248.13.220 - - [16/Feb/2012:23:33:12 +0000] "GET /assets/application-d6226bae46a066944c2ac7673ee489d7.css HTTP/1.1" 200 1000 "http://studyegg.com/" "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; ADR6400L 4G Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" studyegg.com
+2012-02-16T23:33:13+00:00 app[web.2]: cache: [GET /assets/splashes/default.jpg] miss
+2012-02-16T23:33:13+00:00 heroku[router]: GET studyegg.com/assets/splashes/default.jpg dyno=web.2 queue=0 wait=0ms service=11ms status=200 bytes=196102
+2012-02-16T23:33:17+00:00 heroku[nginx]: 166.248.13.220 - - [16/Feb/2012:23:33:17 +0000] "GET /assets/splashes/default.jpg HTTP/1.1" 200 196102 "http://studyegg.com/" "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; ADR6400L 4G Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" studyegg.com
+2012-02-16T23:33:17+00:00 heroku[router]: GET studyegg.com/assets/favicon.ico dyno=web.1 queue=0 wait=0ms service=5ms status=200 bytes=1150
+2012-02-16T23:33:17+00:00 app[web.1]: cache: [GET /assets/favicon.ico] miss
+2012-02-16T23:33:17+00:00 heroku[nginx]: 166.248.13.220 - - [16/Feb/2012:23:33:17 +0000] "GET /assets/favicon.ico HTTP/1.1" 200 1150 "http://studyegg.com/" "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; ADR6400L 4G Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" studyegg.com
+2012-02-16T23:33:31+00:00 app[web.1]: 
+2012-02-16T23:33:31+00:00 app[web.1]: 
+2012-02-16T23:33:31+00:00 app[web.1]: Started GET "/" for 166.248.13.220 at 2012-02-16 23:33:31 +0000
+2012-02-16T23:33:31+00:00 app[web.1]:   Processing by SessionsController#new as HTML
+2012-02-16T23:33:31+00:00 app[web.1]: Rendered sessions/new.html.haml within layouts/application (3.5ms)
+2012-02-16T23:33:31+00:00 app[web.1]: Rendered layouts/_header.html.haml (0.4ms)
+2012-02-16T23:33:31+00:00 app[web.1]: Rendered layouts/_footer.html.haml (0.2ms)
+2012-02-16T23:33:31+00:00 app[web.1]: Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+2012-02-16T23:33:31+00:00 app[web.1]: cache: [GET /] miss
+2012-02-16T23:33:31+00:00 heroku[router]: GET studyegg.com/ dyno=web.1 queue=0 wait=0ms service=77ms status=200 bytes=4371
+2012-02-16T23:33:31+00:00 heroku[nginx]: 166.248.13.220 - - [16/Feb/2012:23:33:31 +0000] "GET / HTTP/1.1" 304 0 "http://www.google.com/search?hl=en&redir_esc=&client=ms-android-verizon&source=android-launcher-widget&v=133247963&qsubts=1329435192790&action=devloc&q=study+egg&v=133247963" "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; ADR6400L 4G Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" studyegg.com
