@@ -15,17 +15,48 @@
 #   :expiration_date => "2020-01-01"
 # )
 
-teacher = User.create!(:email => "jason@studyegg.com", :password => "password", :first_name => "Jason", :last_name => "Urton", :user_type => "TEACHER")
-class1 = Group.create!(:edmodo_id => 1, :title => "Introduction to Biology (Section 1)")
-# class2 = Group.create!(:edmodo_id => 2, :title => "Introduction to Biology (Section 2)")
-teacher.groups << class1
+ed_teacher = User.create!(:email => "ed_teacher@studyegg.com",
+                        :password => "password",
+                        :first_name => "Edmodo",
+                        :last_name => "Teacher",
+                        :user_type => "TEACHER",
+                        :user_token => "330d83cb6")
+
+ed_student = User.create!(:email => "ed_student@studyegg.com",
+                        :password => "password",
+                        :first_name => "Edmodo",
+                        :last_name => "Student",
+                        :user_type => "STUDENT",
+                        :user_token => "052e6ebb6")
+
+se_teacher = User.create!(:email => "se_teacher@studyegg.com",
+                        :password => "password",
+                        :first_name => "Studyegg",
+                        :last_name => "Teacher",
+                        :user_type => "TEACHER",
+                        :id => 999999)
+
+se_student = User.create!(:email => "se_student@studyegg.com",
+                        :password => "password",
+                        :first_name => "Studyegg",
+                        :last_name => "Student")
+
+und_student = User.create!(:email => "und_student@studyegg.com",
+                        :password => "password",
+                        :first_name => "Und",
+                        :last_name => "Student",
+                        :school => "und")
+
+class1 = Group.create!(:title => "Introduction to Biology (Section 1)")
+# class2 = Group.create!(:title => "Introduction to Biology (Section 2)")
+se_teacher.groups << class1
 # teacher.groups << class2
 
-teacher.groups.each do |group|
+se_teacher.groups.each do |group|
     puts "#{group}\n\n"
     25.times do |number|
       group.users << User.create!(
-        :email => "student#{group.id}_#{number}@studyegg.com",
+        :email => "student_#{number}@studyegg.com",
         :password => "password",
         :first_name => "First (#{number})",
         :last_name => "Last (#{number})",
