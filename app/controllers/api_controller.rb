@@ -21,6 +21,11 @@ class ApiController < ApplicationController
         render :json => user
     end
 
+    def export_all_users
+        all_users = User.all
+        render :json => all_users  
+    end
+
     def get_groups_by_user_id
         render :json => User.find(params[:user_id].to_i).groups
     end
