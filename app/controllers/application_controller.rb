@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_in_path_for(resource)
-    sub = current_user.school
-    sub = 'www' if sub.nil?
-    "http://#{sub}.#{STUDYEGG_PATH}"
+    # sub = current_user.school
+    # sub = 'www' if sub.nil?
+    STUDYEGG_QUESTIONS_PATH
   end
   
   def after_sign_out_path_for(resource_name)
